@@ -102,7 +102,7 @@ export default function Footer() {
 
         {/* Copyright Text */}
         <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
-          © {new Date().getFullYear()} <strong>Mayuri Kamble</strong> · Built with{' '}
+          © {new Date().getFullYear()} <strong>{personalInfo.name}</strong> · Built with{' '}
           <Heart size={14} color="#ec4899" style={{ display: 'inline', verticalAlign: 'middle' }} /> using React & Vite
         </p>
 
