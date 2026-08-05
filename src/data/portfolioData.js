@@ -14,7 +14,7 @@ export const personalInfo = {
   phone: "+91 9067880874",
   github: "https://github.com/nanavareswati01",
   linkedin: "https://linkedin.com/in/swati-nanavare-0a4a91321",
-  avatar: "/swati_avatar.png",
+  avatar: "/swati_avatar.jpg",
   resumeUrl: "#resume-download",
   stats: [
     { label: "Degree", value: "MCA (Pursuing)" },
