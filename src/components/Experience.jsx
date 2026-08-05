@@ -19,15 +19,16 @@ export default function Experience() {
           {experienceData.map((exp, idx) => (
             <div
               key={idx}
-              className="glass-card"
+              className="glass-card exp-card"
               style={{
-                padding: '2rem',
+                padding: '1.75rem',
                 position: 'relative',
                 borderLeft: '4px solid var(--accent-purple)',
               }}
             >
               {/* Top Header */}
               <div
+                className="exp-header"
                 style={{
                   display: 'flex',
                   flexWrap: 'wrap',
@@ -38,15 +39,16 @@ export default function Experience() {
                 }}
               >
                 <div>
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 700, marginBottom: '0.2rem' }}>
+                  <h3 style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.35rem)', fontWeight: 700, marginBottom: '0.2rem' }}>
                     {exp.role}
                   </h3>
-                  <p style={{ fontSize: '1.05rem', fontWeight: 600, color: 'var(--accent-cyan)' }}>
+                  <p style={{ fontSize: '0.98rem', fontWeight: 600, color: 'var(--accent-cyan)' }}>
                     {exp.company}
                   </p>
                 </div>
 
                 <div
+                  className="exp-meta"
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -59,7 +61,7 @@ export default function Experience() {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '0.4rem',
-                      fontSize: '0.85rem',
+                      fontSize: '0.82rem',
                       color: 'var(--text-muted)',
                       background: 'var(--bg-tertiary)',
                       padding: '0.3rem 0.8rem',
@@ -75,7 +77,7 @@ export default function Experience() {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '0.4rem',
-                      fontSize: '0.82rem',
+                      fontSize: '0.8rem',
                       color: 'var(--text-muted)',
                     }}
                   >
@@ -97,8 +99,8 @@ export default function Experience() {
                       marginBottom: '0.75rem',
                     }}
                   >
-                    <CheckCircle size={16} color="var(--accent-green)" style={{ flexShrink: 0, marginTop: '3px' }} />
-                    <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                    <CheckCircle size={15} color="var(--accent-green)" style={{ flexShrink: 0, marginTop: '3px' }} />
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
                       {item}
                     </p>
                   </div>
@@ -111,9 +113,9 @@ export default function Experience() {
                   <span
                     key={sIdx}
                     style={{
-                      fontSize: '0.8rem',
+                      fontSize: '0.78rem',
                       fontWeight: 600,
-                      padding: '0.3rem 0.75rem',
+                      padding: '0.28rem 0.7rem',
                       borderRadius: 'var(--radius-full)',
                       background: 'rgba(139, 92, 246, 0.1)',
                       border: '1px solid rgba(139, 92, 246, 0.2)',
@@ -128,6 +130,17 @@ export default function Experience() {
           ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .exp-card {
+            padding: 1.25rem !important;
+          }
+          .exp-meta {
+            align-items: flex-start !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

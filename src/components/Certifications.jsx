@@ -18,8 +18,8 @@ export default function Certifications() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '1.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1.25rem',
           }}
         >
           {certificationsData.map((cert, idx) => (
@@ -27,7 +27,7 @@ export default function Certifications() {
               key={idx}
               className="glass-card"
               style={{
-                padding: '1.75rem',
+                padding: '1.4rem',
                 display: 'flex',
                 flexDirection: 'column',
               }}
@@ -36,29 +36,30 @@ export default function Certifications() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.8rem',
-                  marginBottom: '1.2rem',
+                  gap: '0.75rem',
+                  marginBottom: '1rem',
                 }}
               >
                 <div
                   style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: '12px',
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '10px',
                     background: 'rgba(139, 92, 246, 0.15)',
                     border: '1px solid rgba(139, 92, 246, 0.3)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'var(--accent-purple)',
+                    flexShrink: 0,
                   }}
                 >
-                  <ShieldCheck size={22} />
+                  <ShieldCheck size={20} />
                 </div>
 
                 <div>
-                  <h3 style={{ fontSize: '1.1rem', fontWeight: 700 }}>{cert.title}</h3>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--accent-cyan)', fontWeight: 500 }}>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700 }}>{cert.title}</h3>
+                  <p style={{ fontSize: '0.82rem', color: 'var(--accent-cyan)', fontWeight: 500 }}>
                     {cert.issuer}
                   </p>
                 </div>
@@ -69,9 +70,9 @@ export default function Certifications() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.4rem',
-                  fontSize: '0.82rem',
+                  fontSize: '0.8rem',
                   color: 'var(--text-muted)',
-                  marginBottom: '1.2rem',
+                  marginBottom: '1rem',
                 }}
               >
                 <Calendar size={14} />
@@ -83,10 +84,10 @@ export default function Certifications() {
                   <span
                     key={sIdx}
                     style={{
-                      padding: '0.25rem 0.65rem',
+                      padding: '0.22rem 0.6rem',
                       borderRadius: 'var(--radius-sm)',
                       background: 'var(--bg-tertiary)',
-                      fontSize: '0.78rem',
+                      fontSize: '0.76rem',
                       color: 'var(--text-secondary)',
                     }}
                   >

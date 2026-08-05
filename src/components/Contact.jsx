@@ -55,82 +55,84 @@ export default function Contact() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '2.5rem',
           }}
         >
           {/* Contact Details Left */}
           <div>
-            <h3 style={{ fontSize: '1.6rem', marginBottom: '1rem' }}>
+            <h3 style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)', marginBottom: '1rem' }}>
               Let's build something <span className="gradient-text">great together</span>
             </h3>
 
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '2rem' }}>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '2rem', fontSize: '0.96rem' }}>
               I am currently seeking full-time Full Stack Software Developer opportunities and internships. Whether you have a question, project proposal, or just want to connect, feel free to reach out!
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2.5rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
               <div
                 className="glass-card"
                 style={{
-                  padding: '1.2rem 1.5rem',
+                  padding: '1rem 1.25rem',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '1rem',
+                  gap: '0.85rem',
                 }}
               >
                 <div
                   style={{
-                    width: '46px',
-                    height: '46px',
-                    borderRadius: '12px',
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '10px',
                     background: 'rgba(139, 92, 246, 0.15)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'var(--accent-purple)',
+                    flexShrink: 0,
                   }}
                 >
-                  <MapPin size={22} />
+                  <MapPin size={20} />
                 </div>
                 <div>
-                  <h4 style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.1rem' }}>
+                  <h4 style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.1rem' }}>
                     Location
                   </h4>
-                  <p style={{ fontSize: '1rem', fontWeight: 600 }}>{personalInfo.location}</p>
+                  <p style={{ fontSize: '0.95rem', fontWeight: 600 }}>{personalInfo.location}</p>
                 </div>
               </div>
 
               <div
                 className="glass-card"
                 style={{
-                  padding: '1.2rem 1.5rem',
+                  padding: '1rem 1.25rem',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '1rem',
+                  gap: '0.85rem',
                 }}
               >
                 <div
                   style={{
-                    width: '46px',
-                    height: '46px',
-                    borderRadius: '12px',
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '10px',
                     background: 'rgba(6, 182, 212, 0.15)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'var(--accent-cyan)',
+                    flexShrink: 0,
                   }}
                 >
-                  <Mail size={22} />
+                  <Mail size={20} />
                 </div>
-                <div>
-                  <h4 style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.1rem' }}>
+                <div style={{ minWidth: 0, overflow: 'hidden' }}>
+                  <h4 style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.1rem' }}>
                     Email Address
                   </h4>
                   <a
                     href={`mailto:${personalInfo.email}`}
-                    style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-primary)' }}
+                    style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-primary)', wordBreak: 'break-all' }}
                   >
                     {personalInfo.email}
                   </a>
@@ -140,33 +142,34 @@ export default function Contact() {
               <div
                 className="glass-card"
                 style={{
-                  padding: '1.2rem 1.5rem',
+                  padding: '1rem 1.25rem',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '1rem',
+                  gap: '0.85rem',
                 }}
               >
                 <div
                   style={{
-                    width: '46px',
-                    height: '46px',
-                    borderRadius: '12px',
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '10px',
                     background: 'rgba(16, 185, 129, 0.15)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'var(--accent-green)',
+                    flexShrink: 0,
                   }}
                 >
-                  <Phone size={22} />
+                  <Phone size={20} />
                 </div>
                 <div>
-                  <h4 style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.1rem' }}>
+                  <h4 style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.1rem' }}>
                     Phone Number
                   </h4>
                   <a
                     href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
-                    style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-primary)' }}
+                    style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-primary)' }}
                   >
                     {personalInfo.phone}
                   </a>
@@ -176,8 +179,8 @@ export default function Contact() {
           </div>
 
           {/* Contact Form Right */}
-          <div className="glass-card" style={{ padding: '2rem' }}>
-            <h3 style={{ fontSize: '1.35rem', fontWeight: 700, marginBottom: '1.5rem' }}>
+          <div className="glass-card" style={{ padding: '1.5rem' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.25rem' }}>
               Send Me a Message
             </h3>
 

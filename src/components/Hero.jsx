@@ -49,10 +49,11 @@ export default function Hero({ onOpenResume }) {
     >
       <div className="container">
         <div
+          className="hero-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '3rem',
             alignItems: 'center',
           }}
         >
@@ -68,22 +69,24 @@ export default function Hero({ onOpenResume }) {
                 borderRadius: 'var(--radius-full)',
                 background: 'rgba(139, 92, 246, 0.1)',
                 border: '1px solid rgba(139, 92, 246, 0.25)',
-                fontSize: '0.88rem',
+                fontSize: '0.85rem',
                 fontWeight: 600,
                 color: 'var(--accent-purple)',
                 marginBottom: '1.25rem',
+                maxWidth: '100%',
               }}
             >
-              <Sparkles size={16} />
-              <span>Available for Full-Time Roles & Internships</span>
+              <Sparkles size={16} style={{ flexShrink: 0 }} />
+              <span>Available for Roles & Internships</span>
             </div>
 
             {/* Name Heading */}
             <h1
               style={{
-                fontSize: 'clamp(2.5rem, 5vw, 3.8rem)',
+                fontSize: 'clamp(2.2rem, 5vw, 3.8rem)',
                 letterSpacing: '-0.03em',
                 marginBottom: '0.5rem',
+                wordBreak: 'break-word',
               }}
             >
               Hi, I'm <span className="gradient-text">{personalInfo.name}</span>
@@ -92,7 +95,7 @@ export default function Hero({ onOpenResume }) {
             {/* Typewriter Dynamic Title */}
             <div
               style={{
-                fontSize: 'clamp(1.25rem, 3vw, 1.8rem)',
+                fontSize: 'clamp(1.15rem, 3vw, 1.8rem)',
                 fontWeight: 600,
                 color: 'var(--text-secondary)',
                 marginBottom: '1.5rem',
@@ -117,7 +120,7 @@ export default function Hero({ onOpenResume }) {
             {/* Bio Summary */}
             <p
               style={{
-                fontSize: '1.05rem',
+                fontSize: '1rem',
                 color: 'var(--text-secondary)',
                 lineHeight: 1.7,
                 marginBottom: '2rem',
@@ -133,8 +136,8 @@ export default function Hero({ onOpenResume }) {
                 display: 'flex',
                 flexWrap: 'wrap',
                 gap: '1rem',
-                marginBottom: '2.5rem',
-                fontSize: '0.9rem',
+                marginBottom: '2.25rem',
+                fontSize: '0.88rem',
                 color: 'var(--text-muted)',
               }}
             >
@@ -142,7 +145,7 @@ export default function Hero({ onOpenResume }) {
                 <MapPin size={16} color="var(--accent-purple)" />
                 <span>{personalInfo.location}</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', wordBreak: 'break-all' }}>
                 <Mail size={16} color="var(--accent-cyan)" />
                 <span>{personalInfo.email}</span>
               </div>
@@ -153,24 +156,17 @@ export default function Hero({ onOpenResume }) {
             </div>
 
             {/* CTAs */}
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '1rem',
-                alignItems: 'center',
-              }}
-            >
-              <a href="#projects" className="btn btn-primary">
+            <div className="hero-cta-group">
+              <a href="#projects" className="btn btn-primary hero-btn">
                 <span>View My Work</span>
                 <ArrowRight size={18} />
               </a>
 
-              <a href="#contact" className="btn btn-outline">
+              <a href="#contact" className="btn btn-outline hero-btn">
                 <span>Contact Me</span>
               </a>
 
-              <button onClick={onOpenResume} className="btn btn-ghost">
+              <button onClick={onOpenResume} className="btn btn-ghost hero-btn">
                 <Download size={18} />
                 <span>Resume</span>
               </button>
@@ -182,7 +178,7 @@ export default function Hero({ onOpenResume }) {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '1rem',
-                marginTop: '2.5rem',
+                marginTop: '2.25rem',
               }}
             >
               <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>
@@ -278,11 +274,11 @@ export default function Hero({ onOpenResume }) {
           {/* Graphic Avatar Right */}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div
-              className="animate-float"
+              className="animate-float hero-avatar-box"
               style={{
                 position: 'relative',
                 width: '100%',
-                maxWidth: '420px',
+                maxWidth: '400px',
                 aspectRatio: '1/1',
               }}
             >
@@ -290,11 +286,11 @@ export default function Hero({ onOpenResume }) {
               <div
                 style={{
                   position: 'absolute',
-                  inset: '-15px',
+                  inset: '-12px',
                   borderRadius: '50%',
                   background: 'var(--gradient-primary)',
                   opacity: 0.25,
-                  filter: 'blur(30px)',
+                  filter: 'blur(25px)',
                   animation: 'pulseGlow 4s ease-in-out infinite',
                 }}
               />
@@ -305,8 +301,8 @@ export default function Hero({ onOpenResume }) {
                 style={{
                   width: '100%',
                   height: '100%',
-                  borderRadius: '30px',
-                  padding: '12px',
+                  borderRadius: '26px',
+                  padding: '10px',
                   overflow: 'hidden',
                   position: 'relative',
                 }}
@@ -318,28 +314,30 @@ export default function Hero({ onOpenResume }) {
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    borderRadius: '20px',
+                    borderRadius: '18px',
                   }}
                 />
               </div>
 
               {/* Floating Tech Badges */}
               <div
+                className="hero-badge hero-badge-top"
                 style={{
                   position: 'absolute',
-                  top: '15px',
-                  right: '-15px',
-                  padding: '0.5rem 1rem',
+                  top: '12px',
+                  right: '-10px',
+                  padding: '0.45rem 0.9rem',
                   borderRadius: 'var(--radius-full)',
                   background: 'var(--bg-glass)',
                   backdropFilter: 'blur(10px)',
                   border: '1px solid var(--border-color)',
-                  fontSize: '0.85rem',
+                  fontSize: '0.82rem',
                   fontWeight: 600,
                   boxShadow: 'var(--shadow-md)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.4rem',
+                  zIndex: 2,
                 }}
               >
                 <span style={{ color: '#f59e0b' }}>☕</span>
@@ -347,21 +345,23 @@ export default function Hero({ onOpenResume }) {
               </div>
 
               <div
+                className="hero-badge hero-badge-bottom"
                 style={{
                   position: 'absolute',
-                  bottom: '25px',
-                  left: '-15px',
-                  padding: '0.5rem 1rem',
+                  bottom: '20px',
+                  left: '-10px',
+                  padding: '0.45rem 0.9rem',
                   borderRadius: 'var(--radius-full)',
                   background: 'var(--bg-glass)',
                   backdropFilter: 'blur(10px)',
                   border: '1px solid var(--border-color)',
-                  fontSize: '0.85rem',
+                  fontSize: '0.82rem',
                   fontWeight: 600,
                   boxShadow: 'var(--shadow-md)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.4rem',
+                  zIndex: 2,
                 }}
               >
                 <span style={{ color: '#61dafb' }}>⚛️</span>
@@ -371,6 +371,38 @@ export default function Hero({ onOpenResume }) {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .hero-cta-group {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          align-items: center;
+        }
+        @media (max-width: 640px) {
+          .hero-grid {
+            gap: 2.5rem !important;
+          }
+          .hero-cta-group {
+            flex-direction: column;
+            width: 100%;
+          }
+          .hero-btn {
+            width: 100% !important;
+          }
+          .hero-avatar-box {
+            max-width: 320px !important;
+          }
+          .hero-badge-top {
+            right: 0px !important;
+            top: -10px !important;
+          }
+          .hero-badge-bottom {
+            left: 0px !important;
+            bottom: -10px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

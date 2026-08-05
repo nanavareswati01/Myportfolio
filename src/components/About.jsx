@@ -43,44 +43,46 @@ export default function About() {
         </div>
 
         <div
+          className="about-main-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '2.5rem',
             alignItems: 'center',
           }}
         >
           {/* Highlights Grid Left */}
           <div
+            className="about-highlights-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: '1.25rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+              gap: '1rem',
             }}
           >
             {highlights.map((item, idx) => (
-              <div key={idx} className="glass-card" style={{ padding: '1.5rem' }}>
+              <div key={idx} className="glass-card" style={{ padding: '1.25rem' }}>
                 <div
                   style={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: '12px',
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '10px',
                     background: 'var(--bg-tertiary)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: '1rem',
+                    marginBottom: '0.8rem',
                   }}
                 >
                   {item.icon}
                 </div>
-                <h3 style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.2rem' }}>
+                <h3 style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.2rem' }}>
                   {item.title}
                 </h3>
-                <p style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '0.2rem' }}>
+                <p style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.2rem', wordBreak: 'break-word' }}>
                   {item.value}
                 </p>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
                   {item.sub}
                 </p>
               </div>
@@ -89,27 +91,27 @@ export default function About() {
 
           {/* Bio Story Right */}
           <div>
-            <h3 style={{ fontSize: '1.6rem', marginBottom: '1rem', lineHeight: 1.3 }}>
+            <h3 style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)', marginBottom: '1rem', lineHeight: 1.3 }}>
               Aspiring Java Full Stack Developer & <span className="gradient-text">Team Lead Intern</span>
             </h3>
 
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '1.2rem' }}>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '1.2rem', fontSize: '0.96rem' }}>
               Hello! I'm <strong>Swati Nanavare</strong>, a Master of Computer Applications (MCA) student at Dnyansagar Institute of Management & Research, Pune. I completed my Bachelor of Computer Applications (BCA) at G.A.C.C. Sangli with a CGPA of 8.16 / 10.
             </p>
 
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '2rem' }}>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '2rem', fontSize: '0.96rem' }}>
               During my internship at <strong>STEP by SETTribe LLP</strong>, I gained extensive experience developing full-stack web applications using Java, Spring Boot, React.js, MySQL, PostgreSQL, and Git. In addition to technical development, I took on <strong>Team Lead responsibilities</strong>—coordinating task allocation, tracking project progress, and ensuring high application quality.
             </p>
 
             {/* Core Strengths Checklist */}
-            <h4 style={{ fontSize: '1rem', marginBottom: '0.8rem', color: 'var(--text-primary)' }}>
+            <h4 style={{ fontSize: '0.95rem', marginBottom: '0.8rem', color: 'var(--text-primary)' }}>
               Core Strengths:
             </h4>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.8rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '0.75rem' }}>
               {coreStrengths.map((q, idx) => (
-                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                  <CheckCircle2 size={16} color="var(--accent-purple)" />
-                  <span style={{ fontSize: '0.88rem', fontWeight: 500, color: 'var(--text-secondary)' }}>
+                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <CheckCircle2 size={15} color="var(--accent-purple)" style={{ flexShrink: 0 }} />
+                  <span style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-secondary)' }}>
                     {q}
                   </span>
                 </div>

@@ -13,7 +13,7 @@ export default function ProjectModal({ project, onClose }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '1.5rem',
+        padding: '1rem',
         background: 'rgba(0, 0, 0, 0.75)',
         backdropFilter: 'blur(8px)',
         WebkitBackdropFilter: 'blur(8px)',
@@ -21,13 +21,13 @@ export default function ProjectModal({ project, onClose }) {
       onClick={onClose}
     >
       <div
-        className="glass-card"
+        className="glass-card modal-container"
         style={{
           width: '100%',
           maxWidth: '750px',
           maxHeight: '90vh',
           overflowY: 'auto',
-          padding: '2rem',
+          padding: '1.5rem',
           position: 'relative',
           background: 'var(--bg-secondary)',
           boxShadow: 'var(--shadow-md)',

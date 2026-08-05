@@ -30,8 +30,8 @@ export default function Skills() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '1.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '1.25rem',
           }}
         >
           {skillsData.map((cat, idx) => (
@@ -39,7 +39,7 @@ export default function Skills() {
               key={idx}
               className="glass-card"
               style={{
-                padding: '1.75rem',
+                padding: '1.35rem',
                 position: 'relative',
                 overflow: 'hidden',
               }}
@@ -49,26 +49,27 @@ export default function Skills() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.8rem',
-                  marginBottom: '1.5rem',
+                  gap: '0.75rem',
+                  marginBottom: '1.25rem',
                 }}
               >
                 <div
                   style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: '12px',
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '10px',
                     background: `${cat.color}15`,
                     border: `1px solid ${cat.color}40`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: cat.color,
+                    flexShrink: 0,
                   }}
                 >
                   {getIcon(cat.icon)}
                 </div>
-                <h3 style={{ fontSize: '1.15rem', fontWeight: 700 }}>
+                <h3 style={{ fontSize: '1.1rem', fontWeight: 700 }}>
                   {cat.category}
                 </h3>
               </div>
@@ -78,18 +79,18 @@ export default function Skills() {
                 style={{
                   display: 'flex',
                   flexWrap: 'wrap',
-                  gap: '0.6rem',
+                  gap: '0.5rem',
                 }}
               >
                 {cat.skills.map((skill, sIdx) => (
                   <div
                     key={sIdx}
                     style={{
-                      padding: '0.45rem 0.9rem',
+                      padding: '0.4rem 0.8rem',
                       borderRadius: 'var(--radius-full)',
                       background: 'var(--bg-tertiary)',
                       border: '1px solid var(--border-color)',
-                      fontSize: '0.85rem',
+                      fontSize: '0.82rem',
                       fontWeight: 500,
                       color: 'var(--text-primary)',
                       transition: 'all 0.2s ease',

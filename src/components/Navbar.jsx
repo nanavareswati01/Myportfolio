@@ -93,13 +93,13 @@ export default function Navbar({ theme, toggleTheme, onOpenResume }) {
         </nav>
 
         {/* Action Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <button
             onClick={onOpenResume}
-            className="btn btn-outline"
-            style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}
+            className="btn btn-outline nav-resume-btn"
+            style={{ padding: '0.45rem 0.85rem', fontSize: '0.82rem' }}
           >
-            <Download size={15} />
+            <Download size={14} />
             <span>Resume</span>
           </button>
 
@@ -107,8 +107,8 @@ export default function Navbar({ theme, toggleTheme, onOpenResume }) {
             onClick={toggleTheme}
             aria-label="Toggle Theme"
             style={{
-              width: '40px',
-              height: '40px',
+              width: '38px',
+              height: '38px',
               borderRadius: '50%',
               display: 'flex',
               alignItems: 'center',
@@ -117,9 +117,10 @@ export default function Navbar({ theme, toggleTheme, onOpenResume }) {
               border: '1px solid var(--border-color)',
               color: 'var(--text-primary)',
               transition: 'all 0.2s ease',
+              flexShrink: 0,
             }}
           >
-            {theme === 'dark' ? <Sun size={18} color="#f59e0b" /> : <Moon size={18} color="#8b5cf6" />}
+            {theme === 'dark' ? <Sun size={17} color="#f59e0b" /> : <Moon size={17} color="#8b5cf6" />}
           </button>
 
           <button
@@ -127,8 +128,8 @@ export default function Navbar({ theme, toggleTheme, onOpenResume }) {
             aria-label="Toggle Menu"
             className="mobile-toggle"
             style={{
-              width: '40px',
-              height: '40px',
+              width: '38px',
+              height: '38px',
               borderRadius: '10px',
               display: 'flex',
               alignItems: 'center',
@@ -136,46 +137,61 @@ export default function Navbar({ theme, toggleTheme, onOpenResume }) {
               background: 'var(--bg-glass-card)',
               border: '1px solid var(--border-color)',
               color: 'var(--text-primary)',
+              flexShrink: 0,
             }}
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Backdrop & Drawer */}
       {mobileMenuOpen && (
         <div
           style={{
             position: 'fixed',
-            top: '70px',
-            left: 0,
-            right: 0,
-            background: 'var(--bg-secondary)',
-            borderBottom: '1px solid var(--border-color)',
-            padding: '1.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            boxShadow: 'var(--shadow-md)',
+            inset: 0,
+            top: '64px',
+            background: 'rgba(0, 0, 0, 0.6)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            zIndex: 999,
           }}
+          onClick={() => setMobileMenuOpen(false)}
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              style={{
-                fontSize: '1rem',
-                fontWeight: 600,
-                color: 'var(--text-primary)',
-                padding: '0.5rem 0',
-                borderBottom: '1px solid var(--border-color)',
-              }}
-            >
-              {link.name}
-            </a>
-          ))}
+          <div
+            style={{
+              background: 'var(--bg-secondary)',
+              borderBottom: '1px solid var(--border-color)',
+              padding: '1.25rem 1.5rem 1.75rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.75rem',
+              boxShadow: 'var(--shadow-md)',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  color: 'var(--text-primary)',
+                  padding: '0.65rem 0',
+                  borderBottom: '1px solid var(--border-color)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <span>{link.name}</span>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>→</span>
+              </a>
+            ))}
+          </div>
         </div>
       )}
 
@@ -183,6 +199,10 @@ export default function Navbar({ theme, toggleTheme, onOpenResume }) {
         @media (min-width: 900px) {
           .desktop-nav { display: flex !important; }
           .mobile-toggle { display: none !important; }
+        }
+        @media (max-width: 480px) {
+          .nav-resume-btn span { display: none; }
+          .nav-resume-btn { padding: 0.45rem !important; border-radius: 50% !important; width: 38px; height: 38px; }
         }
       `}</style>
     </header>
