@@ -28,13 +28,13 @@ export const skillsData = [
   {
     category: "Programming Languages",
     icon: "Code2",
-    color: "#6366f1",
+    color: "#3b82f6",
     skills: ["Java", "JavaScript"]
   },
   {
     category: "Frontend Development",
     icon: "Layout",
-    color: "#ec4899",
+    color: "#0284c7",
     skills: ["HTML5", "CSS3", "React.js", "Bootstrap", "JavaScript (ES6+)"]
   },
   {
@@ -52,13 +52,13 @@ export const skillsData = [
   {
     category: "Software Testing",
     icon: "CheckCircle2",
-    color: "#06b6d4",
+    color: "#0d9488",
     skills: ["Manual Testing", "API Testing", "Debugging", "Test Case Execution"]
   },
   {
     category: "Tools & IDEs",
     icon: "Wrench",
-    color: "#8b5cf6",
+    color: "#6366f1",
     skills: ["Git", "GitHub", "VS Code", "STS (Spring Tool Suite)", "Postman"]
   }
 ];

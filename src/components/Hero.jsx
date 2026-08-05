@@ -286,12 +286,12 @@ export default function Hero({ onOpenResume }) {
               <div
                 style={{
                   position: 'absolute',
-                  inset: '-12px',
+                  inset: '-10px',
                   borderRadius: '50%',
                   background: 'var(--gradient-primary)',
-                  opacity: 0.25,
-                  filter: 'blur(25px)',
-                  animation: 'pulseGlow 4s ease-in-out infinite',
+                  opacity: 0.15,
+                  filter: 'blur(20px)',
+                  animation: 'pulseGlow 5s ease-in-out infinite',
                 }}
               />
 
@@ -301,10 +301,12 @@ export default function Hero({ onOpenResume }) {
                 style={{
                   width: '100%',
                   height: '100%',
-                  borderRadius: '26px',
-                  padding: '10px',
+                  borderRadius: '24px',
+                  padding: '8px',
                   overflow: 'hidden',
                   position: 'relative',
+                  border: '1px solid var(--border-glow)',
+                  boxShadow: 'var(--shadow-md)',
                 }}
               >
                 <img
@@ -314,7 +316,7 @@ export default function Hero({ onOpenResume }) {
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    borderRadius: '18px',
+                    borderRadius: '16px',
                   }}
                 />
               </div>
@@ -326,22 +328,22 @@ export default function Hero({ onOpenResume }) {
                   position: 'absolute',
                   top: '12px',
                   right: '-10px',
-                  padding: '0.45rem 0.9rem',
+                  padding: '0.45rem 0.95rem',
                   borderRadius: 'var(--radius-full)',
                   background: 'var(--bg-glass)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid var(--border-color)',
+                  backdropFilter: 'blur(12px)',
+                  border: '1px solid var(--border-glow)',
                   fontSize: '0.82rem',
                   fontWeight: 600,
                   boxShadow: 'var(--shadow-md)',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.4rem',
+                  gap: '0.45rem',
                   zIndex: 2,
                 }}
               >
                 <span style={{ color: '#f59e0b' }}>☕</span>
-                <span>Java & Spring</span>
+                <span>Java & Spring Boot</span>
               </div>
 
               <div
@@ -350,22 +352,22 @@ export default function Hero({ onOpenResume }) {
                   position: 'absolute',
                   bottom: '20px',
                   left: '-10px',
-                  padding: '0.45rem 0.9rem',
+                  padding: '0.45rem 0.95rem',
                   borderRadius: 'var(--radius-full)',
                   background: 'var(--bg-glass)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid var(--border-color)',
+                  backdropFilter: 'blur(12px)',
+                  border: '1px solid var(--border-glow)',
                   fontSize: '0.82rem',
                   fontWeight: 600,
                   boxShadow: 'var(--shadow-md)',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.4rem',
+                  gap: '0.45rem',
                   zIndex: 2,
                 }}
               >
-                <span style={{ color: '#61dafb' }}>⚛️</span>
-                <span>React Developer</span>
+                <span style={{ color: '#38bdf8' }}>⚛️</span>
+                <span>React Engineer</span>
               </div>
             </div>
           </div>
