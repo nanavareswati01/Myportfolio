@@ -308,19 +308,11 @@ export default function ResumeModal({ isOpen, onClose }) {
         </div>
 
         {/* Actions */}
-        <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
-          <a
-            href={`mailto:${personalInfo.email}?subject=Interview Request for Swati Nanavare`}
-            className="btn btn-primary"
-            style={{ flex: 1 }}
-          >
-            <Mail size={18} />
-            <span>Hire Swati</span>
-          </a>
-
+        <div style={{ display: 'flex', marginTop: '2rem' }}>
           <button
             onClick={handleDownloadPDF}
-            className="btn btn-outline"
+            className="btn btn-primary"
+            style={{ width: '100%', padding: '0.85rem' }}
           >
             <Download size={18} />
             <span>Download PDF</span>
