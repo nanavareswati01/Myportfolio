@@ -1,9 +1,201 @@
 import React from 'react';
+import { jsPDF } from 'jspdf';
 import { personalInfo, experienceData, educationData, skillsData } from '../data/portfolioData';
-import { X, Download, FileText, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
+import { X, Download, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function ResumeModal({ isOpen, onClose }) {
   if (!isOpen) return null;
+
+  const handleDownloadPDF = () => {
+    try {
+      const doc = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4',
+      });
+
+      const blue = [37, 99, 235];
+      const dark = [15, 23, 42];
+      const gray = [71, 85, 105];
+
+      let y = 15;
+
+      // Header
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(20);
+      doc.setTextColor(...blue);
+      doc.text('SWATI NANAVARE', 15, y);
+
+      y += 6;
+      doc.setFontSize(10.5);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(...gray);
+      doc.text('Java Full Stack Developer | MCA Student', 15, y);
+
+      y += 5;
+      doc.setFontSize(9);
+      doc.text('Pune, Maharashtra, India  |  +91 9067880874  |  swatinanavare8@gmail.com', 15, y);
+
+      y += 4;
+      doc.text('GitHub: github.com/nanavareswati01  |  LinkedIn: linkedin.com/in/swati-nanavare-0a4a91321', 15, y);
+
+      y += 4;
+      doc.setDrawColor(200, 200, 200);
+      doc.line(15, y, 195, y);
+
+      // Summary
+      y += 6;
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(...blue);
+      doc.text('PROFESSIONAL SUMMARY', 15, y);
+
+      y += 5;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(...dark);
+      const summary = personalInfo.summary;
+      const splitSummary = doc.splitTextToSize(summary, 180);
+      doc.text(splitSummary, 15, y);
+
+      y += splitSummary.length * 4.5 + 2;
+
+      // Work Experience
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(...blue);
+      doc.text('WORK EXPERIENCE', 15, y);
+
+      y += 5;
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      doc.setTextColor(...dark);
+      doc.text('Java Full Stack Developer Intern', 15, y);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(...gray);
+      doc.text('Jan 2026 - Present', 195, y, { align: 'right' });
+
+      y += 4.5;
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(...blue);
+      doc.text('STEP by SETTribe LLP, Pune, India', 15, y);
+
+      y += 5;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.8);
+      doc.setTextColor(...dark);
+      const bullets = [
+        '• Developed frontend and backend features using Java Full Stack technologies, including Java, Spring Boot, React.js, and MySQL.',
+        '• Implemented form handling, REST APIs, CRUD operations, API integration, and database operations.',
+        '• Collaborated with team members to analyze requirements, track development progress, and maintain effective communication throughout project lifecycle.',
+        '• Contributed to development team coordination and took Team Lead responsibilities by supporting task allocation and coordinating deliverables.',
+        '• Contributed to Meeting & Task Planner System and College Management System focusing on application quality and performance.'
+      ];
+
+      bullets.forEach((bullet) => {
+        const lines = doc.splitTextToSize(bullet, 175);
+        doc.text(lines, 18, y);
+        y += lines.length * 4;
+      });
+
+      // Technical Skills
+      y += 3;
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(...blue);
+      doc.text('TECHNICAL SKILLS', 15, y);
+
+      y += 5;
+      doc.setFontSize(8.8);
+      doc.setTextColor(...dark);
+      const skills = [
+        ['Programming Languages:', 'Java, JavaScript (ES6+)'],
+        ['Frontend Development:', 'HTML5, CSS3, React.js, Bootstrap'],
+        ['Backend Development:', 'Java SE/EE, Spring Boot, REST APIs, CRUD Operations'],
+        ['Database Systems:', 'MySQL, PostgreSQL, Relational DB Design, SQL Queries'],
+        ['Software Testing:', 'Manual Testing, API Testing, Debugging, Test Execution'],
+        ['Tools & IDEs:', 'Git, GitHub, VS Code, STS (Spring Tool Suite), Postman']
+      ];
+
+      skills.forEach(([label, val]) => {
+        doc.setFont('helvetica', 'bold');
+        doc.text(label, 15, y);
+        doc.setFont('helvetica', 'normal');
+        doc.text(val, 60, y);
+        y += 4.2;
+      });
+
+      // Key Projects
+      y += 2;
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(...blue);
+      doc.text('KEY PROJECTS', 15, y);
+
+      y += 5;
+      doc.setFontSize(9.5);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(...dark);
+      doc.text('1. Meeting and Task Planner System', 15, y);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor(...gray);
+      doc.text('(Java, Spring Boot, React.js, MySQL, REST APIs)', 82, y);
+
+      y += 4.2;
+      doc.setTextColor(...dark);
+      doc.setFontSize(8.8);
+      doc.text('• Web app for meeting scheduling & task tracking with REST APIs, CRUD operations, and MySQL database integration.', 18, y);
+
+      y += 5;
+      doc.setFontSize(9.5);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(...dark);
+      doc.text('2. College Management System', 15, y);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor(...gray);
+      doc.text('(Java, Spring Boot, React.js, MySQL, JWT Auth)', 78, y);
+
+      y += 4.2;
+      doc.setTextColor(...dark);
+      doc.setFontSize(8.8);
+      doc.text('• Administrative portal with Department, User, File Management modules, JWT auth, and interactive dashboards.', 18, y);
+
+      // Education
+      y += 5;
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(...blue);
+      doc.text('EDUCATION', 15, y);
+
+      y += 5;
+      doc.setFontSize(9.2);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(...dark);
+      doc.text('Master of Computer Applications (MCA)', 15, y);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(...gray);
+      doc.text('2024 - 2026 (Pursuing)', 195, y, { align: 'right' });
+      y += 4;
+      doc.text('Dnyansagar Institute of Management & Research, Pune', 15, y);
+
+      y += 4.5;
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(...dark);
+      doc.text('Bachelor of Computer Applications (BCA)', 15, y);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(...gray);
+      doc.text('2021 - 2024 (CGPA: 8.16 / 10)', 195, y, { align: 'right' });
+      y += 4;
+      doc.text('G.A.C.C., Sangli', 15, y);
+
+      doc.save('Swati_Nanavare_Resume.pdf');
+    } catch (err) {
+      console.error(err);
+      window.print();
+    }
+  };
 
   return (
     <div
@@ -127,7 +319,7 @@ export default function ResumeModal({ isOpen, onClose }) {
           </a>
 
           <button
-            onClick={() => alert("Downloading Swati Nanavare's Resume PDF...")}
+            onClick={handleDownloadPDF}
             className="btn btn-outline"
           >
             <Download size={18} />
