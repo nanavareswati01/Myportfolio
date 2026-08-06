@@ -147,37 +147,47 @@ export const educationData = [
 
 export const certificationsData = [
   {
-    title: "Cloud Computing (Elite Certification)",
-    issuer: "NPTEL / IIT Kharagpur (MoE, Govt. of India)",
+    title: "Cloud Computing",
+    issuer: "NPTEL · IIT Kharagpur",
     date: "Jan–Apr 2026",
-    skills: ["Cloud Computing", "Virtualization", "Distributed Systems", "Score: 66% (Elite)"],
+    badge: "★ Elite",
+    score: "66%",
+    skills: ["Cloud Computing", "Virtualization", "Distributed Systems"],
     file: "/certificates/cert_cloud_computing_nptel.pdf"
   },
   {
     title: "Data Analytics with Python",
-    issuer: "NPTEL / IIT Roorkee (MoE, Govt. of India)",
+    issuer: "NPTEL · IIT Roorkee",
     date: "Jan–Apr 2026",
-    skills: ["Python", "Data Analytics", "Data Visualization", "Statistical Analysis"],
+    badge: "NPTEL Certified",
+    score: "55%",
+    skills: ["Python", "Data Analytics", "Data Visualization"],
     file: "/certificates/cert_data_analytics_python.pdf"
   },
   {
     title: "Cybersecurity Essentials",
-    issuer: "NASSCOM / Cisco Networking Academy",
+    issuer: "NASSCOM · Cisco Networking Academy",
     date: "March 2025",
-    skills: ["Cybersecurity", "Network Security", "Threat Management", "Cisco Academy"],
+    badge: "Cisco Academy",
+    score: "Verified",
+    skills: ["Cybersecurity", "Network Security", "Threat Defense"],
     file: "/certificates/cert_cybersecurity_essentials.pdf"
   },
   {
-    title: "IP Awareness & Training Program (NIPAM)",
-    issuer: "Intellectual Property Office, Govt. of India",
+    title: "IP Awareness & Training Program",
+    issuer: "Intellectual Property Office · Govt. of India",
     date: "February 2025",
-    skills: ["Intellectual Property", "Patents & Trademarks", "IP Rights", "NIPAM"],
+    badge: "NIPAM",
+    score: "National Mission",
+    skills: ["Intellectual Property", "Patents & Trademarks", "IP Rights"],
     file: "/certificates/cert_ip_awareness_nipam.pdf"
   },
   {
     title: "National Financial Literacy Quiz 2025",
-    issuer: "NISM / SEBI (Govt. of India)",
+    issuer: "NISM · SEBI",
     date: "2025",
+    badge: "SEBI",
+    score: "Verified",
     skills: ["Financial Literacy", "Securities Markets", "Financial Planning"],
     file: "/certificates/cert_financial_literacy_nism.pdf"
   }

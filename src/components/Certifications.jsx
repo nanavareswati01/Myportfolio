@@ -1,231 +1,278 @@
 import React, { useState } from 'react';
 import { certificationsData } from '../data/portfolioData';
-import { Award, ShieldCheck, Calendar, Eye, X, Download, Maximize2 } from 'lucide-react';
+import { Award, ChevronLeft, ChevronRight, Eye, X, Download } from 'lucide-react';
 
 export default function Certifications() {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedCert, setSelectedCert] = useState(null);
 
-  // Helper to render stylized top preview banners for certificates
-  const renderCardBanner = (cert) => {
-    const isNptel = cert.issuer.includes('NPTEL');
-    const isCisco = cert.issuer.includes('Cisco');
-    const isNipam = cert.issuer.includes('Intellectual');
-    const isNism = cert.issuer.includes('NISM');
+  const cardsPerPage = 2;
+  const maxIndex = Math.max(0, certificationsData.length - cardsPerPage);
 
-    return (
-      <div
-        style={{
-          width: '100%',
-          height: '150px',
-          borderRadius: '12px',
-          overflow: 'hidden',
-          position: 'relative',
-          marginBottom: '1rem',
-          background: isNptel
-            ? 'linear-gradient(135deg, #1e1b4b 0%, #311b92 100%)'
-            : isCisco
-            ? 'linear-gradient(135deg, #075985 0%, #0c4a6e 100%)'
-            : isNipam
-            ? 'linear-gradient(135deg, #701a75 0%, #4a044e 100%)'
-            : isNism
-            ? 'linear-gradient(135deg, #78350f 0%, #451a03 100%)'
-            : 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
-          border: '1px solid var(--border-color)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '1rem',
-          textAlign: 'center',
-          boxShadow: 'inset 0 0 20px rgba(0,0,0,0.4)',
-        }}
-      >
-        {/* NPTEL Header Ribbon */}
-        {isNptel && (
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              background: '#dc2626',
-              color: '#ffffff',
-              padding: '0.15rem 1.2rem',
-              fontSize: '0.7rem',
-              fontWeight: 800,
-              letterSpacing: '0.1em',
-              borderBottomLeftRadius: '6px',
-              borderBottomRightRadius: '6px',
-              textTransform: 'uppercase',
-            }}
-          >
-            Elite
-          </div>
-        )}
+  const handlePrev = () => {
+    setCurrentIndex((prev) => Math.max(0, prev - 1));
+  };
 
-        <div style={{ opacity: 0.9, marginBottom: '0.3rem' }}>
-          <ShieldCheck size={32} color={isNptel ? '#f59e0b' : isCisco ? '#38bdf8' : '#e879f9'} />
-        </div>
-
-        <span
-          style={{
-            fontSize: '0.72rem',
-            fontWeight: 700,
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            color: 'rgba(255, 255, 255, 0.7)',
-            marginBottom: '0.2rem',
-          }}
-        >
-          {cert.issuer}
-        </span>
-
-        <h4
-          style={{
-            fontSize: '0.95rem',
-            fontWeight: 800,
-            color: '#ffffff',
-            lineHeight: 1.3,
-            maxWidth: '90%',
-          }}
-        >
-          {cert.title}
-        </h4>
-
-        {/* Hover View Overlay Indicator */}
-        <div
-          className="cert-overlay"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'rgba(9, 13, 22, 0.75)',
-            backdropFilter: 'blur(3px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '0.5rem',
-            color: '#ffffff',
-            fontSize: '0.85rem',
-            fontWeight: 600,
-            opacity: 0,
-            transition: 'opacity 0.25s ease',
-          }}
-        >
-          <Eye size={18} />
-          <span>Click to View</span>
-        </div>
-      </div>
-    );
+  const handleNext = () => {
+    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
   };
 
   return (
     <section id="certifications" className="section-padding" style={{ position: 'relative', zIndex: 1 }}>
       <div className="container">
         {/* Section Header */}
-        <div className="section-header">
-          <div className="section-subtitle">
-            <Award size={15} />
-            <span>CREDENTIALS</span>
-          </div>
-          <h2 className="section-title">Certifications</h2>
-          <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
+        <div className="section-header" style={{ marginBottom: '2.5rem' }}>
+          <h2
+            className="section-title gradient-text"
+            style={{ fontSize: 'clamp(2.2rem, 5vw, 3rem)', fontWeight: 800, marginBottom: '0.5rem' }}
+          >
+            Certifications
+          </h2>
+          <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto' }}>
             Professional certifications, national level accreditations, and course completions.
           </p>
+
+          {/* Carousel Arrows */}
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '1rem',
+              marginTop: '1.5rem',
+            }}
+          >
+            <button
+              onClick={handlePrev}
+              disabled={currentIndex === 0}
+              aria-label="Previous Certificates"
+              style={{
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                background: 'var(--bg-secondary)',
+                border: '1px solid var(--border-color)',
+                color: currentIndex === 0 ? 'var(--text-muted)' : 'var(--text-primary)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
+                opacity: currentIndex === 0 ? 0.4 : 1,
+                transition: 'all 0.2s ease',
+              }}
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            <button
+              onClick={handleNext}
+              disabled={currentIndex >= maxIndex}
+              aria-label="Next Certificates"
+              style={{
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                background: 'var(--bg-secondary)',
+                border: '1px solid var(--border-color)',
+                color: currentIndex >= maxIndex ? 'var(--text-muted)' : 'var(--text-primary)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: currentIndex >= maxIndex ? 'not-allowed' : 'pointer',
+                opacity: currentIndex >= maxIndex ? 0.4 : 1,
+                transition: 'all 0.2s ease',
+              }}
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
         </div>
 
-        {/* Grid Layout */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '1.5rem',
-          }}
-        >
-          {certificationsData.map((cert, idx) => (
-            <div
-              key={idx}
-              className="glass-card cert-card"
-              style={{
-                padding: '1.25rem',
-                display: 'flex',
-                flexDirection: 'column',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-              }}
-              onClick={() => setSelectedCert(cert)}
-            >
-              {/* Visual Banner Header */}
-              {renderCardBanner(cert)}
-
-              {/* Card Meta Body */}
-              <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
-                  <span
+        {/* Carousel Container */}
+        <div style={{ overflow: 'hidden', padding: '0.5rem 0' }}>
+          <div
+            style={{
+              display: 'flex',
+              gap: '1.5rem',
+              transform: `translateX(-${currentIndex * (100 / cardsPerPage + 1.5)}%)`,
+              transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+            }}
+          >
+            {certificationsData.map((cert, idx) => (
+              <div
+                key={idx}
+                className="glass-card cert-card-item"
+                style={{
+                  minWidth: 'calc(50% - 0.75rem)',
+                  flex: '0 0 calc(50% - 0.75rem)',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  background: 'var(--bg-secondary)',
+                  border: '1px solid var(--border-color)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  cursor: 'pointer',
+                  transition: 'transform 0.3s ease, border-color 0.3s ease',
+                }}
+                onClick={() => setSelectedCert(cert)}
+              >
+                {/* Top Half: Embedded Certificate Document Preview */}
+                <div
+                  style={{
+                    width: '100%',
+                    height: '240px',
+                    position: 'relative',
+                    background: '#080c14',
+                    overflow: 'hidden',
+                    borderBottom: '1px solid var(--border-color)',
+                  }}
+                >
+                  <iframe
+                    src={`${cert.file}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                    title={cert.title}
                     style={{
-                      width: '8px',
-                      height: '8px',
-                      borderRadius: '50%',
-                      background: cert.title.includes('Elite') ? '#f59e0b' : 'var(--accent-purple)',
+                      width: '100%',
+                      height: '100%',
+                      border: 'none',
+                      pointerEvents: 'none',
                     }}
                   />
-                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700 }}>{cert.title}</h3>
-                </div>
 
-                <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', fontWeight: 500, marginBottom: '0.8rem' }}>
-                  {cert.issuer}
-                </p>
-
-                {/* Badges Bar */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginTop: 'auto' }}>
-                  <span
+                  {/* Hover Overlay Button */}
+                  <div
+                    className="cert-card-overlay"
                     style={{
-                      padding: '0.25rem 0.65rem',
-                      borderRadius: 'var(--radius-full)',
-                      background: 'var(--bg-tertiary)',
-                      fontSize: '0.75rem',
-                      fontWeight: 600,
-                      color: 'var(--text-secondary)',
-                      display: 'inline-flex',
+                      position: 'absolute',
+                      inset: 0,
+                      background: 'rgba(9, 13, 22, 0.65)',
+                      backdropFilter: 'blur(4px)',
+                      display: 'flex',
                       alignItems: 'center',
-                      gap: '0.3rem',
+                      justifyContent: 'center',
+                      opacity: 0,
+                      transition: 'opacity 0.25s ease',
                     }}
                   >
-                    <Calendar size={12} />
-                    {cert.date}
-                  </span>
-
-                  {cert.skills.map((sk, sIdx) => (
-                    <span
-                      key={sIdx}
+                    <div
                       style={{
-                        padding: '0.25rem 0.65rem',
+                        padding: '0.5rem 1.25rem',
                         borderRadius: 'var(--radius-full)',
-                        background: sk.includes('Elite')
-                          ? 'rgba(245, 158, 11, 0.15)'
-                          : sk.includes('Score')
-                          ? 'rgba(16, 185, 129, 0.15)'
-                          : 'var(--bg-tertiary)',
-                        border: sk.includes('Elite') ? '1px solid rgba(245, 158, 11, 0.3)' : '1px solid var(--border-color)',
-                        fontSize: '0.75rem',
-                        fontWeight: 600,
-                        color: sk.includes('Elite')
-                          ? '#f59e0b'
-                          : sk.includes('Score')
-                          ? '#10b981'
-                          : 'var(--text-secondary)',
+                        background: 'rgba(59, 130, 246, 0.9)',
+                        color: '#ffffff',
+                        fontSize: '0.88rem',
+                        fontWeight: 700,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.4rem',
+                        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
                       }}
                     >
-                      {sk}
+                      <Eye size={16} />
+                      <span>View Certificate</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Half: Certificate Title & Badges */}
+                <div style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.3rem' }}>
+                    <span
+                      style={{
+                        width: '8px',
+                        height: '8px',
+                        borderRadius: '50%',
+                        background: cert.badge.includes('Elite') ? '#f59e0b' : '#3b82f6',
+                        flexShrink: 0,
+                      }}
+                    />
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                      {cert.title}
+                    </h3>
+                  </div>
+
+                  <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 500, marginBottom: '1rem', paddingLeft: '1rem' }}>
+                    {cert.issuer}
+                  </p>
+
+                  {/* Pill Badges Bar */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginTop: 'auto', paddingLeft: '1rem' }}>
+                    <span
+                      style={{
+                        padding: '0.25rem 0.7rem',
+                        borderRadius: 'var(--radius-full)',
+                        background: 'var(--bg-tertiary)',
+                        fontSize: '0.76rem',
+                        fontWeight: 600,
+                        color: 'var(--text-secondary)',
+                      }}
+                    >
+                      {cert.date}
                     </span>
-                  ))}
+
+                    {cert.badge && (
+                      <span
+                        style={{
+                          padding: '0.25rem 0.7rem',
+                          borderRadius: 'var(--radius-full)',
+                          background: cert.badge.includes('Elite') ? 'rgba(245, 158, 11, 0.15)' : 'rgba(59, 130, 246, 0.15)',
+                          border: cert.badge.includes('Elite') ? '1px solid rgba(245, 158, 11, 0.3)' : '1px solid rgba(59, 130, 246, 0.3)',
+                          fontSize: '0.76rem',
+                          fontWeight: 700,
+                          color: cert.badge.includes('Elite') ? '#f59e0b' : '#3b82f6',
+                        }}
+                      >
+                        {cert.badge}
+                      </span>
+                    )}
+
+                    {cert.score && (
+                      <span
+                        style={{
+                          padding: '0.25rem 0.7rem',
+                          borderRadius: 'var(--radius-full)',
+                          background: 'rgba(16, 185, 129, 0.15)',
+                          border: '1px solid rgba(16, 185, 129, 0.3)',
+                          fontSize: '0.76rem',
+                          fontWeight: 700,
+                          color: '#10b981',
+                        }}
+                      >
+                        {cert.score}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Carousel Pagination Dots */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '0.4rem',
+            marginTop: '2rem',
+          }}
+        >
+          {Array.from({ length: maxIndex + 1 }).map((_, dIdx) => (
+            <button
+              key={dIdx}
+              onClick={() => setCurrentIndex(dIdx)}
+              aria-label={`Go to page ${dIdx + 1}`}
+              style={{
+                width: currentIndex === dIdx ? '24px' : '8px',
+                height: '8px',
+                borderRadius: 'var(--radius-full)',
+                background: currentIndex === dIdx ? 'var(--accent-purple)' : 'var(--border-color)',
+                transition: 'all 0.3s ease',
+              }}
+            />
           ))}
         </div>
       </div>
 
-      {/* In-Page Certificate Viewer Modal (No New Browser Tabs!) */}
+      {/* In-Page Certificate Lightbox Modal (NO NEW BROWSER TABS!) */}
       {selectedCert && (
         <div
           style={{
@@ -236,7 +283,7 @@ export default function Certifications() {
             alignItems: 'center',
             justifyContent: 'center',
             padding: '1rem',
-            background: 'rgba(0, 0, 0, 0.85)',
+            background: 'rgba(0, 0, 0, 0.88)',
             backdropFilter: 'blur(10px)',
             WebkitBackdropFilter: 'blur(10px)',
           }}
@@ -246,14 +293,14 @@ export default function Certifications() {
             className="glass-card"
             style={{
               width: '100%',
-              maxWidth: '900px',
+              maxWidth: '920px',
               maxHeight: '92vh',
               display: 'flex',
               flexDirection: 'column',
               padding: '1.25rem',
               position: 'relative',
               background: 'var(--bg-secondary)',
-              boxShadow: 'var(--shadow-md)',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
               borderRadius: '20px',
             }}
             onClick={(e) => e.stopPropagation()}
@@ -270,17 +317,19 @@ export default function Certifications() {
               }}
             >
               <div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 800 }}>{selectedCert.title}</h3>
-                <p style={{ fontSize: '0.85rem', color: 'var(--accent-purple)', fontWeight: 600 }}>
-                  {selectedCert.issuer} • {selectedCert.date}
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                  {selectedCert.title}
+                </h3>
+                <p style={{ fontSize: '0.88rem', color: 'var(--accent-purple)', fontWeight: 600 }}>
+                  {selectedCert.issuer} • Issued: {selectedCert.date}
                 </p>
               </div>
 
               <button
                 onClick={() => setSelectedCert(null)}
                 style={{
-                  width: '36px',
-                  height: '36px',
+                  width: '38px',
+                  height: '38px',
                   borderRadius: '50%',
                   background: 'var(--bg-tertiary)',
                   border: '1px solid var(--border-color)',
@@ -294,16 +343,15 @@ export default function Certifications() {
               </button>
             </div>
 
-            {/* Embedded Inline Document Viewer */}
+            {/* Embedded Document Container */}
             <div
               style={{
                 width: '100%',
-                height: '62vh',
+                height: '64vh',
                 borderRadius: '12px',
                 overflow: 'hidden',
                 background: '#090d16',
                 border: '1px solid var(--border-color)',
-                position: 'relative',
               }}
             >
               <iframe
@@ -317,7 +365,7 @@ export default function Certifications() {
               />
             </div>
 
-            {/* Modal Footer Controls */}
+            {/* Modal Action Bar */}
             <div
               style={{
                 display: 'flex',
@@ -328,7 +376,7 @@ export default function Certifications() {
               }}
             >
               <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                Official Certificate Document
+                Official Verified Certificate Document
               </span>
 
               <div style={{ display: 'flex', gap: '0.75rem' }}>
@@ -355,10 +403,19 @@ export default function Certifications() {
         </div>
       )}
 
-      {/* Hover Overlay CSS */}
       <style>{`
-        .cert-card:hover .cert-overlay {
+        .cert-card-item:hover .cert-card-overlay {
           opacity: 1 !important;
+        }
+        .cert-card-item:hover {
+          transform: translateY(-5px);
+          border-color: var(--border-glow) !important;
+        }
+        @media (max-width: 768px) {
+          .cert-card-item {
+            min-width: 100% !important;
+            flex: 0 0 100% !important;
+          }
         }
       `}</style>
     </section>
