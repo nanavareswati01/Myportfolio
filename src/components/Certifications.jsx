@@ -1,6 +1,6 @@
 import React from 'react';
 import { certificationsData } from '../data/portfolioData';
-import { Award, ShieldCheck, Calendar } from 'lucide-react';
+import { Award, ShieldCheck, Calendar, ExternalLink, Eye } from 'lucide-react';
 
 export default function Certifications() {
   return (
@@ -45,8 +45,8 @@ export default function Certifications() {
                     width: '40px',
                     height: '40px',
                     borderRadius: '10px',
-                    background: 'rgba(139, 92, 246, 0.15)',
-                    border: '1px solid rgba(139, 92, 246, 0.3)',
+                    background: 'rgba(59, 130, 246, 0.15)',
+                    border: '1px solid rgba(59, 130, 246, 0.3)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -79,7 +79,7 @@ export default function Certifications() {
                 <span>Issued: {cert.date}</span>
               </div>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginTop: 'auto' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.25rem' }}>
                 {cert.skills.map((sk, sIdx) => (
                   <span
                     key={sIdx}
@@ -95,6 +95,29 @@ export default function Certifications() {
                   </span>
                 ))}
               </div>
+
+              {/* View Certificate Button */}
+              {cert.file && (
+                <a
+                  href={cert.file}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-outline"
+                  style={{
+                    marginTop: 'auto',
+                    width: '100%',
+                    padding: '0.55rem 1rem',
+                    fontSize: '0.85rem',
+                    borderRadius: 'var(--radius-md)',
+                    gap: '0.4rem',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Eye size={15} />
+                  <span>View Certificate</span>
+                  <ExternalLink size={13} style={{ marginLeft: 'auto' }} />
+                </a>
+              )}
             </div>
           ))}
         </div>

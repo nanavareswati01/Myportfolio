@@ -150,31 +150,36 @@ export const certificationsData = [
     title: "Cloud Computing (Elite Certification)",
     issuer: "NPTEL / IIT Kharagpur (MoE, Govt. of India)",
     date: "Jan–Apr 2026",
-    skills: ["Cloud Computing", "Virtualization", "Distributed Systems", "Score: 66% (Elite)"]
+    skills: ["Cloud Computing", "Virtualization", "Distributed Systems", "Score: 66% (Elite)"],
+    file: "/certificates/cert_cloud_computing_nptel.pdf"
   },
   {
     title: "Data Analytics with Python",
     issuer: "NPTEL / IIT Roorkee (MoE, Govt. of India)",
     date: "Jan–Apr 2026",
-    skills: ["Python", "Data Analytics", "Data Visualization", "Statistical Analysis"]
+    skills: ["Python", "Data Analytics", "Data Visualization", "Statistical Analysis"],
+    file: "/certificates/cert_data_analytics_python.pdf"
   },
   {
     title: "Cybersecurity Essentials",
     issuer: "NASSCOM / Cisco Networking Academy",
     date: "March 2025",
-    skills: ["Cybersecurity", "Network Security", "Threat Management", "Cisco Academy"]
+    skills: ["Cybersecurity", "Network Security", "Threat Management", "Cisco Academy"],
+    file: "/certificates/cert_cybersecurity_essentials.pdf"
   },
   {
     title: "IP Awareness & Training Program (NIPAM)",
     issuer: "Intellectual Property Office, Govt. of India",
     date: "February 2025",
-    skills: ["Intellectual Property", "Patents & Trademarks", "IP Rights", "NIPAM"]
+    skills: ["Intellectual Property", "Patents & Trademarks", "IP Rights", "NIPAM"],
+    file: "/certificates/cert_ip_awareness_nipam.pdf"
   },
   {
     title: "National Financial Literacy Quiz 2025",
     issuer: "NISM / SEBI (Govt. of India)",
     date: "2025",
-    skills: ["Financial Literacy", "Securities Markets", "Financial Planning"]
+    skills: ["Financial Literacy", "Securities Markets", "Financial Planning"],
+    file: "/certificates/cert_financial_literacy_nism.pdf"
   }
 ];
 
