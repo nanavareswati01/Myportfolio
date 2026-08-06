@@ -147,22 +147,34 @@ export const educationData = [
 
 export const certificationsData = [
   {
-    title: "Java Full Stack Web Development",
-    issuer: "STEP by SETTribe LLP",
-    date: "2026",
-    skills: ["Java", "Spring Boot", "React.js", "MySQL", "REST APIs"]
+    title: "Cloud Computing (Elite Certification)",
+    issuer: "NPTEL / IIT Kharagpur (MoE, Govt. of India)",
+    date: "Jan–Apr 2026",
+    skills: ["Cloud Computing", "Virtualization", "Distributed Systems", "Score: 66% (Elite)"]
   },
   {
-    title: "Core & Advanced Java Concepts",
-    issuer: "Technical Training Institute",
-    date: "2024",
-    skills: ["OOPs", "Multithreading", "Collections", "JDBC"]
+    title: "Data Analytics with Python",
+    issuer: "NPTEL / IIT Roorkee (MoE, Govt. of India)",
+    date: "Jan–Apr 2026",
+    skills: ["Python", "Data Analytics", "Data Visualization", "Statistical Analysis"]
   },
   {
-    title: "Web Development & Testing",
-    issuer: "Academic Certification",
-    date: "2023",
-    skills: ["HTML5", "CSS3", "JavaScript", "Manual Testing"]
+    title: "Cybersecurity Essentials",
+    issuer: "NASSCOM / Cisco Networking Academy",
+    date: "March 2025",
+    skills: ["Cybersecurity", "Network Security", "Threat Management", "Cisco Academy"]
+  },
+  {
+    title: "IP Awareness & Training Program (NIPAM)",
+    issuer: "Intellectual Property Office, Govt. of India",
+    date: "February 2025",
+    skills: ["Intellectual Property", "Patents & Trademarks", "IP Rights", "NIPAM"]
+  },
+  {
+    title: "National Financial Literacy Quiz 2025",
+    issuer: "NISM / SEBI (Govt. of India)",
+    date: "2025",
+    skills: ["Financial Literacy", "Securities Markets", "Financial Planning"]
   }
 ];
 

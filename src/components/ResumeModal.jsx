@@ -1,7 +1,7 @@
 import React from 'react';
 import { jsPDF } from 'jspdf';
-import { personalInfo, experienceData, educationData, skillsData } from '../data/portfolioData';
-import { X, Download, Mail, Phone, MapPin } from 'lucide-react';
+import { personalInfo, experienceData, educationData, certificationsData, skillsData } from '../data/portfolioData';
+import { X, Download, Mail, Phone, MapPin, Award } from 'lucide-react';
 
 export default function ResumeModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -125,45 +125,30 @@ export default function ResumeModal({ isOpen, onClose }) {
         y += 4.2;
       });
 
-      // Key Projects
-      y += 2;
+      // Certifications
+      y += 3;
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(11);
       doc.setTextColor(...blue);
-      doc.text('KEY PROJECTS', 15, y);
+      doc.text('CERTIFICATIONS & ACHIEVEMENTS', 15, y);
 
       y += 5;
-      doc.setFontSize(9.5);
-      doc.setFont('helvetica', 'bold');
-      doc.setTextColor(...dark);
-      doc.text('1. Meeting and Task Planner System', 15, y);
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(8.5);
-      doc.setTextColor(...gray);
-      doc.text('(Java, Spring Boot, React.js, MySQL, REST APIs)', 82, y);
+      certificationsData.forEach((cert) => {
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9.2);
+        doc.setTextColor(...dark);
+        doc.text(`• ${cert.title}`, 15, y);
 
-      y += 4.2;
-      doc.setTextColor(...dark);
-      doc.setFontSize(8.8);
-      doc.text('• Web app for meeting scheduling & task tracking with REST APIs, CRUD operations, and MySQL database integration.', 18, y);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8.5);
+        doc.setTextColor(...gray);
+        doc.text(`${cert.issuer} (${cert.date})`, 195, y, { align: 'right' });
 
-      y += 5;
-      doc.setFontSize(9.5);
-      doc.setFont('helvetica', 'bold');
-      doc.setTextColor(...dark);
-      doc.text('2. College Management System', 15, y);
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(8.5);
-      doc.setTextColor(...gray);
-      doc.text('(Java, Spring Boot, React.js, MySQL, JWT Auth)', 78, y);
-
-      y += 4.2;
-      doc.setTextColor(...dark);
-      doc.setFontSize(8.8);
-      doc.text('• Administrative portal with Department, User, File Management modules, JWT auth, and interactive dashboards.', 18, y);
+        y += 4.5;
+      });
 
       // Education
-      y += 5;
+      y += 3;
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(11);
       doc.setTextColor(...blue);
@@ -288,6 +273,21 @@ export default function ResumeModal({ isOpen, onClose }) {
                   <li key={dIdx} style={{ marginBottom: '0.3rem' }}>{d}</li>
                 ))}
               </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Certifications Section */}
+        <div style={{ marginBottom: '1.5rem' }}>
+          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.8rem' }}>
+            Certifications & Achievements
+          </h3>
+          {certificationsData.map((cert, idx) => (
+            <div key={idx} style={{ marginBottom: '0.6rem', display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem' }}>
+              <div>
+                <span style={{ fontWeight: 600 }}>{cert.title}</span> – <span style={{ color: 'var(--text-secondary)' }}>{cert.issuer}</span>
+              </div>
+              <span style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>{cert.date}</span>
             </div>
           ))}
         </div>
