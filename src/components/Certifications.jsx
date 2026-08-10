@@ -347,7 +347,7 @@ export default function Certifications() {
             <div
               style={{
                 width: '100%',
-                height: '64vh',
+                height: '72vh',
                 borderRadius: '12px',
                 overflow: 'hidden',
                 background: '#090d16',
@@ -363,41 +363,6 @@ export default function Certifications() {
                   border: 'none',
                 }}
               />
-            </div>
-
-            {/* Modal Action Bar */}
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginTop: '1rem',
-                gap: '1rem',
-              }}
-            >
-              <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                Official Verified Certificate Document
-              </span>
-
-              <div style={{ display: 'flex', gap: '0.75rem' }}>
-                <a
-                  href={selectedCert.file}
-                  download
-                  className="btn btn-primary"
-                  style={{ padding: '0.55rem 1.25rem', fontSize: '0.85rem' }}
-                >
-                  <Download size={16} />
-                  <span>Download PDF</span>
-                </a>
-
-                <button
-                  onClick={() => setSelectedCert(null)}
-                  className="btn btn-outline"
-                  style={{ padding: '0.55rem 1.25rem', fontSize: '0.85rem' }}
-                >
-                  <span>Close</span>
-                </button>
-              </div>
             </div>
           </div>
         </div>
