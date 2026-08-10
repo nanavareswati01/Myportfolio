@@ -165,6 +165,24 @@ export const certificationsData = [
     file: "/certificates/cert_data_analytics_python.pdf"
   },
   {
+    title: "Google Cloud Workshop",
+    issuer: "Indian OpenSource Community · DIMR Pune",
+    date: "November 2025",
+    badge: "Google Cloud",
+    score: "ID: 1001",
+    skills: ["Google Cloud", "Cloud Infrastructure", "OpenSource"],
+    file: "/certificates/cert_google_cloud_workshop.pdf"
+  },
+  {
+    title: "Traditional Knowledge & IP Rights",
+    issuer: "IKS (MoE) & CSIR-TKDL (Govt. of India)",
+    date: "April 2025",
+    badge: "Merit 75%+",
+    score: "75%+ Score",
+    skills: ["Intellectual Property", "Traditional Knowledge", "People's Rights"],
+    file: "/certificates/cert_iks_tkdl_traditional_knowledge.pdf"
+  },
+  {
     title: "Cybersecurity Essentials",
     issuer: "NASSCOM · Cisco Networking Academy",
     date: "March 2025",
@@ -181,6 +199,15 @@ export const certificationsData = [
     score: "National Mission",
     skills: ["Intellectual Property", "Patents & Trademarks", "IP Rights"],
     file: "/certificates/cert_ip_awareness_nipam.pdf"
+  },
+  {
+    title: "National Financial Literacy Quiz 2025",
+    issuer: "NISM · SEBI",
+    date: "2025",
+    badge: "SEBI",
+    score: "Verified",
+    skills: ["Financial Literacy", "Securities Markets", "Financial Planning"],
+    file: "/certificates/cert_financial_literacy_nism.pdf"
   }
 ];
 
