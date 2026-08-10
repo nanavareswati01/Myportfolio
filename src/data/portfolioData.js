@@ -181,15 +181,6 @@ export const certificationsData = [
     score: "National Mission",
     skills: ["Intellectual Property", "Patents & Trademarks", "IP Rights"],
     file: "/certificates/cert_ip_awareness_nipam.pdf"
-  },
-  {
-    title: "National Financial Literacy Quiz 2025",
-    issuer: "NISM · SEBI",
-    date: "2025",
-    badge: "SEBI",
-    score: "Verified",
-    skills: ["Financial Literacy", "Securities Markets", "Financial Planning"],
-    file: "/certificates/cert_financial_literacy_nism.pdf"
   }
 ];
 
