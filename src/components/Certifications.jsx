@@ -272,7 +272,7 @@ export default function Certifications() {
         </div>
       </div>
 
-      {/* In-Page Certificate Lightbox Modal (NO NEW BROWSER TABS!) */}
+      {/* In-Page Certificate Frameless Lightbox (ONLY CERTIFICATE SHOWS) */}
       {selectedCert && (
         <div
           style={{
@@ -282,88 +282,65 @@ export default function Certifications() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '1rem',
-            background: 'rgba(0, 0, 0, 0.88)',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
+            padding: '1.5rem',
+            background: 'rgba(0, 0, 0, 0.92)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
           }}
           onClick={() => setSelectedCert(null)}
         >
           <div
-            className="glass-card"
             style={{
-              width: '100%',
-              maxWidth: '920px',
-              maxHeight: '92vh',
-              display: 'flex',
-              flexDirection: 'column',
-              padding: '1.25rem',
               position: 'relative',
-              background: 'var(--bg-secondary)',
-              boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
-              borderRadius: '20px',
+              width: '100%',
+              maxWidth: '1020px',
+              height: '85vh',
+              borderRadius: '16px',
+              overflow: 'visible',
+              boxShadow: '0 25px 60px rgba(0, 0, 0, 0.8)',
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div
+            {/* Floating Close Button */}
+            <button
+              onClick={() => setSelectedCert(null)}
+              aria-label="Close certificate viewer"
               style={{
+                position: 'absolute',
+                top: '-18px',
+                right: '-18px',
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                background: '#1e293b',
+                border: '2px solid rgba(255, 255, 255, 0.2)',
+                color: '#ffffff',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'space-between',
-                borderBottom: '1px solid var(--border-color)',
-                paddingBottom: '0.85rem',
-                marginBottom: '1rem',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                zIndex: 10,
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)',
+                transition: 'transform 0.2s ease',
               }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
             >
-              <div>
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-primary)' }}>
-                  {selectedCert.title}
-                </h3>
-                <p style={{ fontSize: '0.88rem', color: 'var(--accent-purple)', fontWeight: 600 }}>
-                  {selectedCert.issuer} • Issued: {selectedCert.date}
-                </p>
-              </div>
+              <X size={22} />
+            </button>
 
-              <button
-                onClick={() => setSelectedCert(null)}
-                style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '50%',
-                  background: 'var(--bg-tertiary)',
-                  border: '1px solid var(--border-color)',
-                  color: 'var(--text-primary)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <X size={20} />
-              </button>
-            </div>
-
-            {/* Embedded Document Container */}
-            <div
+            {/* Direct Full-Frame Certificate Document */}
+            <iframe
+              src={`${selectedCert.file}#toolbar=0&navpanes=0&scrollbar=1`}
+              title={selectedCert.title}
               style={{
                 width: '100%',
-                height: '72vh',
-                borderRadius: '12px',
-                overflow: 'hidden',
-                background: '#090d16',
-                border: '1px solid var(--border-color)',
+                height: '100%',
+                borderRadius: '16px',
+                border: 'none',
+                background: '#ffffff',
               }}
-            >
-              <iframe
-                src={`${selectedCert.file}#toolbar=0&navpanes=0&scrollbar=1`}
-                title={selectedCert.title}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  border: 'none',
-                }}
-              />
-            </div>
+            />
           </div>
         </div>
       )}
