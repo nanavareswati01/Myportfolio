@@ -282,19 +282,6 @@ export default function Hero({ onOpenResume }) {
                 aspectRatio: '1/1',
               }}
             >
-              {/* Outer Glow Ring */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: '-10px',
-                  borderRadius: '50%',
-                  background: 'var(--gradient-primary)',
-                  opacity: 0.15,
-                  filter: 'blur(20px)',
-                  animation: 'pulseGlow 5s ease-in-out infinite',
-                }}
-              />
-
               {/* Main Profile Card Container */}
               <div
                 className="glass-card"
@@ -305,7 +292,7 @@ export default function Hero({ onOpenResume }) {
                   padding: '8px',
                   overflow: 'hidden',
                   position: 'relative',
-                  border: '1px solid var(--border-glow)',
+                  border: '1px solid var(--border-color)',
                   boxShadow: 'var(--shadow-md)',
                 }}
               >
