@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { Mail, ArrowUp, Heart } from 'lucide-react';
+import { Mail, ArrowUp } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 
 export default function Footer() {
@@ -102,8 +102,7 @@ export default function Footer() {
 
         {/* Copyright Text */}
         <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
-          © {new Date().getFullYear()} <strong>{personalInfo.name}</strong> · Built with{' '}
-          <Heart size={14} color="#ec4899" style={{ display: 'inline', verticalAlign: 'middle' }} /> using React & Vite
+          © {new Date().getFullYear()} <strong>{personalInfo.name}</strong> · Built using React & Vite
         </p>
 
         <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
