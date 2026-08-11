@@ -95,11 +95,11 @@ export default function About() {
               Aspiring Java Full Stack Developer & <span className="gradient-text">Team Lead Intern</span>
             </h3>
 
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '1.2rem', fontSize: '0.96rem' }}>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '0.6rem', fontSize: '0.96rem' }}>
               Hello! I'm <strong>Swati Nanavare</strong>, a Master of Computer Applications (MCA) student at Dnyansagar Institute of Management & Research, Pune. I completed my Bachelor of Computer Applications (BCA) at G.A.C.C. Sangli with a CGPA of 8.16 / 10.
             </p>
 
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '2rem', fontSize: '0.96rem' }}>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '1.5rem', fontSize: '0.96rem' }}>
               During my internship at <strong>STEP by SETTribe LLP</strong>, I gained extensive experience developing full-stack web applications using Java, Spring Boot, React.js, MySQL, PostgreSQL, and Git. In addition to technical development, I took on <strong>Team Lead responsibilities</strong>—coordinating task allocation, tracking project progress, and ensuring high application quality.
             </p>
 

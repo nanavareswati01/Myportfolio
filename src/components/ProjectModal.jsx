@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ExternalLink, CheckCircle2 } from 'lucide-react';
-import { GithubIcon } from './SocialIcons';
+import { X, CheckCircle2 } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose }) {
   useEffect(() => {
@@ -123,7 +122,7 @@ export default function ProjectModal({ project, onClose }) {
         </div>
 
         {/* Tech Stack */}
-        <div style={{ marginBottom: '2rem' }}>
+        <div>
           <h4 style={{ fontSize: '1rem', marginBottom: '0.8rem', color: 'var(--text-primary)' }}>
             Technologies Used:
           </h4>
@@ -144,20 +143,6 @@ export default function ProjectModal({ project, onClose }) {
               </span>
             ))}
           </div>
-        </div>
-
-        {/* Actions */}
-        <div style={{ display: 'flex', gap: '1rem' }}>
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-outline"
-            style={{ flex: 1 }}
-          >
-            <GithubIcon size={18} />
-            <span>Source Code</span>
-          </a>
         </div>
       </div>
     </div>

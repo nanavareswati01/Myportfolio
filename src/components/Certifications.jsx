@@ -353,7 +353,7 @@ export default function Certifications() {
             display: 'flex',
             justifyContent: 'center',
             gap: '0.4rem',
-            marginTop: '2rem',
+            marginTop: '1.25rem',
           }}
         >
           {Array.from({ length: maxIndex + 1 }).map((_, dIdx) => (

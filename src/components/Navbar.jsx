@@ -46,27 +46,22 @@ export default function Navbar({ theme, toggleTheme, onOpenResume }) {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.6rem',
+            gap: '0.675rem',
             fontSize: '1.4rem',
             fontWeight: 800,
             color: 'var(--text-primary)',
           }}
         >
-          <div
+          <img
+            src="/logo.png"
+            alt="Logo"
             style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '10px',
-              background: 'var(--gradient-primary)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#ffffff',
-              boxShadow: 'var(--shadow-glow)',
+              height: '36px',
+              width: 'auto',
+              maxHeight: '36px',
+              objectFit: 'contain',
             }}
-          >
-            <Code2 size={22} />
-          </div>
+          />
           <span>
             Swati<span className="gradient-text">.dev</span>
           </span>

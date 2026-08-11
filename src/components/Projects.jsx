@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { projectsData } from '../data/portfolioData';
 import ProjectModal from './ProjectModal';
-import { FolderGit2, ExternalLink, Eye } from 'lucide-react';
-import { GithubIcon } from './SocialIcons';
+import { FolderGit2, Eye } from 'lucide-react';
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const categories = ['All', 'Full Stack', 'Web Apps'];
+  const categories = ['All', 'Full Stack'];
 
   const filteredProjects =
     activeCategory === 'All'
@@ -167,19 +166,8 @@ export default function Projects() {
                     style={{ flex: 1, padding: '0.5rem 0.85rem', fontSize: '0.82rem' }}
                   >
                     <Eye size={15} />
-                    <span>Details</span>
+                    <span>View Details</span>
                   </button>
-
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-ghost"
-                    style={{ padding: '0.5rem 0.85rem', fontSize: '0.82rem' }}
-                  >
-                    <GithubIcon size={15} />
-                    <span>Code</span>
-                  </a>
                 </div>
               </div>
             </div>

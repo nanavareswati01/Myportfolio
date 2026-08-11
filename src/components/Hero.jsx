@@ -38,9 +38,9 @@ export default function Hero({ onOpenResume }) {
     <section
       id="hero"
       style={{
-        minHeight: '100vh',
-        paddingTop: '8rem',
-        paddingBottom: '4rem',
+        minHeight: 'auto',
+        paddingTop: '6.5rem',
+        paddingBottom: '2.5rem',
         display: 'flex',
         alignItems: 'center',
         position: 'relative',
@@ -178,7 +178,7 @@ export default function Hero({ onOpenResume }) {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '1rem',
-                marginTop: '2.25rem',
+                marginTop: '1.5rem',
               }}
             >
               <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>
