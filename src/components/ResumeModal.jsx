@@ -4,6 +4,17 @@ import { personalInfo, experienceData, educationData, certificationsData, skills
 import { X, Download, Mail, Phone, MapPin, Award } from 'lucide-react';
 
 export default function ResumeModal({ isOpen, onClose }) {
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const handleDownloadPDF = () => {

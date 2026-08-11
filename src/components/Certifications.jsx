@@ -104,6 +104,18 @@ export default function Certifications() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedCert, setSelectedCert] = useState(null);
 
+  // Lock body scroll when certificate modal is open
+  useEffect(() => {
+    if (selectedCert) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedCert]);
+
   const cardsPerPage = 2;
   const maxIndex = Math.max(0, certificationsData.length - cardsPerPage);
 
@@ -367,14 +379,14 @@ export default function Certifications() {
           style={{
             position: 'fixed',
             inset: 0,
-            zIndex: 3000,
+            zIndex: 99999,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             padding: '1rem',
-            background: 'rgba(0, 0, 0, 0.92)',
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
+            background: 'rgba(9, 13, 22, 0.96)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
           }}
           onClick={() => setSelectedCert(null)}
         >
