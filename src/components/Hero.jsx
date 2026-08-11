@@ -320,55 +320,6 @@ export default function Hero({ onOpenResume }) {
                   }}
                 />
               </div>
-
-              {/* Floating Tech Badges */}
-              <div
-                className="hero-badge hero-badge-top"
-                style={{
-                  position: 'absolute',
-                  top: '12px',
-                  right: '-10px',
-                  padding: '0.45rem 0.95rem',
-                  borderRadius: 'var(--radius-full)',
-                  background: 'var(--bg-glass)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid var(--border-glow)',
-                  fontSize: '0.82rem',
-                  fontWeight: 600,
-                  boxShadow: 'var(--shadow-md)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.45rem',
-                  zIndex: 2,
-                }}
-              >
-                <span style={{ color: '#f59e0b' }}>☕</span>
-                <span>Java & Spring Boot</span>
-              </div>
-
-              <div
-                className="hero-badge hero-badge-bottom"
-                style={{
-                  position: 'absolute',
-                  bottom: '20px',
-                  left: '-10px',
-                  padding: '0.45rem 0.95rem',
-                  borderRadius: 'var(--radius-full)',
-                  background: 'var(--bg-glass)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid var(--border-glow)',
-                  fontSize: '0.82rem',
-                  fontWeight: 600,
-                  boxShadow: 'var(--shadow-md)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.45rem',
-                  zIndex: 2,
-                }}
-              >
-                <span style={{ color: '#38bdf8' }}>⚛️</span>
-                <span>React Engineer</span>
-              </div>
             </div>
           </div>
         </div>
