@@ -1,6 +1,104 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { certificationsData } from '../data/portfolioData';
-import { Award, ChevronLeft, ChevronRight, Eye, X, Download } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Eye, X } from 'lucide-react';
+
+// Lightweight PDF to Canvas renderer component
+function PdfCanvasViewer({ file, title, isThumbnail = false }) {
+  const canvasRef = useRef(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const renderPdf = async () => {
+      try {
+        setLoading(true);
+        const pdfjsLib = await import('pdfjs-dist');
+        pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
+
+        const loadingTask = pdfjsLib.getDocument(file);
+        const pdf = await loadingTask.promise;
+        const page = await pdf.getPage(1);
+
+        if (!isMounted || !canvasRef.current) return;
+
+        const canvas = canvasRef.current;
+        const context = canvas.getContext('2d');
+
+        const unscaledViewport = page.getViewport({ scale: 1 });
+        let targetScale = 1.5;
+
+        if (isThumbnail) {
+          targetScale = 360 / unscaledViewport.width;
+        } else {
+          const targetWidth = Math.min(window.innerWidth * 0.88, 980);
+          targetScale = targetWidth / unscaledViewport.width;
+        }
+
+        const viewport = page.getViewport({ scale: targetScale });
+
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        const renderContext = {
+          canvasContext: context,
+          viewport: viewport,
+        };
+
+        await page.render(renderContext).promise;
+        if (isMounted) setLoading(false);
+      } catch (err) {
+        console.error('Error rendering PDF:', err);
+        if (isMounted) setLoading(false);
+      }
+    };
+
+    renderPdf();
+    return () => {
+      isMounted = false;
+    };
+  }, [file, isThumbnail]);
+
+  return (
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+      }}
+    >
+      {loading && (
+        <div
+          style={{
+            fontSize: '0.85rem',
+            color: 'var(--text-secondary)',
+            padding: '1.5rem',
+            textAlign: 'center',
+          }}
+        >
+          Loading Certificate...
+        </div>
+      )}
+      <canvas
+        ref={canvasRef}
+        style={{
+          display: loading ? 'none' : 'block',
+          maxWidth: isThumbnail ? '100%' : '88vw',
+          maxHeight: isThumbnail ? '100%' : '82vh',
+          width: isThumbnail ? '100%' : 'auto',
+          height: isThumbnail ? '100%' : 'auto',
+          objectFit: 'contain',
+          borderRadius: isThumbnail ? '0px' : '14px',
+          boxShadow: isThumbnail ? 'none' : '0 20px 50px rgba(0, 0, 0, 0.9)',
+          background: '#ffffff',
+        }}
+      />
+    </div>
+  );
+}
 
 export default function Certifications() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -115,7 +213,7 @@ export default function Certifications() {
                 }}
                 onClick={() => setSelectedCert(cert)}
               >
-                {/* Top Half: Embedded Certificate Document Preview */}
+                {/* Top Half: Real Canvas Certificate Preview */}
                 <div
                   style={{
                     width: '100%',
@@ -126,16 +224,7 @@ export default function Certifications() {
                     borderBottom: '1px solid var(--border-color)',
                   }}
                 >
-                  <iframe
-                    src={`${cert.file}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                    title={cert.title}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      border: 'none',
-                      pointerEvents: 'none',
-                    }}
-                  />
+                  <PdfCanvasViewer file={cert.file} title={cert.title} isThumbnail={true} />
 
                   {/* Hover Overlay Button */}
                   <div
@@ -143,7 +232,7 @@ export default function Certifications() {
                     style={{
                       position: 'absolute',
                       inset: 0,
-                      background: 'rgba(9, 13, 22, 0.65)',
+                      background: 'rgba(9, 13, 22, 0.6)',
                       backdropFilter: 'blur(4px)',
                       display: 'flex',
                       alignItems: 'center',
@@ -272,7 +361,7 @@ export default function Certifications() {
         </div>
       </div>
 
-      {/* In-Page Certificate Frameless Lightbox (ONLY CERTIFICATE SHOWS) */}
+      {/* In-Page Certificate Frameless Lightbox (PURE CERTIFICATE ONLY) */}
       {selectedCert && (
         <div
           style={{
@@ -282,7 +371,7 @@ export default function Certifications() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '1.5rem',
+            padding: '1rem',
             background: 'rgba(0, 0, 0, 0.92)',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
@@ -292,12 +381,11 @@ export default function Certifications() {
           <div
             style={{
               position: 'relative',
-              width: '100%',
-              maxWidth: '1020px',
-              height: '85vh',
-              borderRadius: '16px',
-              overflow: 'visible',
-              boxShadow: '0 25px 60px rgba(0, 0, 0, 0.8)',
+              maxWidth: '92vw',
+              maxHeight: '88vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -307,20 +395,20 @@ export default function Certifications() {
               aria-label="Close certificate viewer"
               style={{
                 position: 'absolute',
-                top: '-18px',
-                right: '-18px',
+                top: '-20px',
+                right: '-20px',
                 width: '42px',
                 height: '42px',
                 borderRadius: '50%',
                 background: '#1e293b',
-                border: '2px solid rgba(255, 255, 255, 0.2)',
+                border: '2px solid rgba(255, 255, 255, 0.3)',
                 color: '#ffffff',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
                 zIndex: 10,
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.7)',
                 transition: 'transform 0.2s ease',
               }}
               onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
@@ -329,18 +417,8 @@ export default function Certifications() {
               <X size={22} />
             </button>
 
-            {/* Direct Full-Frame Certificate Document */}
-            <iframe
-              src={`${selectedCert.file}#toolbar=0&navpanes=0&scrollbar=1`}
-              title={selectedCert.title}
-              style={{
-                width: '100%',
-                height: '100%',
-                borderRadius: '16px',
-                border: 'none',
-                background: '#ffffff',
-              }}
-            />
+            {/* Pure Canvas Rendering - ZERO Gray Background Box */}
+            <PdfCanvasViewer file={selectedCert.file} title={selectedCert.title} isThumbnail={false} />
           </div>
         </div>
       )}
