@@ -26,40 +26,49 @@ export const personalInfo = {
 
 export const skillsData = [
   {
-    category: "Programming Languages",
-    icon: "Code2",
-    color: "#3b82f6",
-    skills: ["Java", "JavaScript"]
-  },
-  {
-    category: "Frontend Development",
+    category: "Frontend",
     icon: "Layout",
-    color: "#0284c7",
-    skills: ["HTML5", "CSS3", "React.js", "Bootstrap", "JavaScript (ES6+)"]
+    color: "#e34f26",
+    skills: [
+      { name: "HTML5", icon: "html5" },
+      { name: "CSS3", icon: "css3" },
+      { name: "React.js", icon: "react" },
+      { name: "JavaScript", icon: "js" },
+      { name: "Tailwind CSS", icon: "tailwind" }
+    ]
   },
   {
-    category: "Backend Development",
+    category: "Backend",
     icon: "Server",
-    color: "#10b981",
-    skills: ["Java SE / EE", "Spring Boot", "REST APIs", "CRUD Operations"]
+    color: "#8b5cf6",
+    skills: [
+      { name: "Java", icon: "java" },
+      { name: "Spring Boot", icon: "spring" }
+    ]
   },
   {
-    category: "Database Systems",
-    icon: "Database",
-    color: "#f59e0b",
-    skills: ["MySQL", "PostgreSQL", "Relational DB Design", "SQL Queries"]
-  },
-  {
-    category: "Software Testing",
-    icon: "CheckCircle2",
-    color: "#0d9488",
-    skills: ["Manual Testing", "API Testing", "Debugging", "Test Case Execution"]
-  },
-  {
-    category: "Tools & IDEs",
+    category: "Tools & DevOps",
     icon: "Wrench",
-    color: "#6366f1",
-    skills: ["Git", "GitHub", "VS Code", "STS (Spring Tool Suite)", "Postman"]
+    color: "#06b6d4",
+    skills: [
+      { name: "Git", icon: "git" },
+      { name: "GitHub", icon: "github" },
+      { name: "VS Code", icon: "vscode" },
+      { name: "DBeaver", icon: "dbeaver" },
+      { name: "Render", icon: "render" },
+      { name: "STS", icon: "sts" }
+    ]
+  },
+  {
+    category: "Soft Skills",
+    icon: "Handshake",
+    color: "#10b981",
+    skills: [
+      { name: "Team Lead", icon: "users" },
+      { name: "Project Management", icon: "briefcase" },
+      { name: "Time Management", icon: "clock" },
+      { name: "Problem Solving", icon: "brain" }
+    ]
   }
 ];
 
