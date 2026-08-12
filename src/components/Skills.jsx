@@ -66,27 +66,25 @@ const TechIcon = ({ name, color }) => {
     case 'github':
       return (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill="#FFFFFF" />
+          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill="currentColor" />
         </svg>
       );
     case 'vscode':
       return (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
           <path d="M17.5 2.5L22 4.5V19.5L17.5 21.5L8.5 14L4 17.5L2 16V8L4 6.5L8.5 10L17.5 2.5Z" fill="#007ACC" />
-          <path d="M17.5 2.5L8.5 10L4 6.5L2 8V16L4 17.5L8.5 14L17.5 21.5V2.5Z" fill="#007ACC" />
         </svg>
       );
     case 'dbeaver':
       return (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <rect width="24" height="24" rx="4" fill="#382923" />
+          <rect width="24" height="24" rx="4" fill="rgba(59, 130, 246, 0.15)" />
           <path d="M12 4C7.58 4 4 5.79 4 8v8c0 2.21 3.58 4 8 4s8-1.79 8-4V8c0-2.21-3.58-4-8-4zm0 2c3.31 0 6 1.12 6 2.5S15.31 11 12 11s-6-1.12-6-2.5S8.69 6 12 6zm0 12c-3.31 0-6-1.12-6-2.5V13c1.45.86 3.6 1.4 6 1.4s4.55-.54 6-1.4v2.5c0 1.38-2.69 2.5-6 2.5z" fill="#3B82F6" />
         </svg>
       );
     case 'render':
       return (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <rect width="24" height="24" rx="4" fill="#141414" />
           <path d="M6 16.5C6 14 8 12 10.5 12C11 12 11.5 12.1 12 12.3C12.7 10.4 14.5 9 16.5 9C19 9 21 11 21 13.5C21 13.7 21 13.9 20.9 14.1C21.6 14.6 22 15.5 22 16.5C22 18 20.8 19.2 19.3 19.2H6.7C5.2 19.2 4 18 4 16.5C4 15.3 4.8 14.3 6 14C6 14.8 6 15.7 6 16.5Z" fill="#46E3B7" />
         </svg>
       );
@@ -97,10 +95,10 @@ const TechIcon = ({ name, color }) => {
           <path d="M12 6L14.5 11H9.5L12 6ZM12 18L9.5 13H14.5L12 18Z" fill="#FFFFFF" />
         </svg>
       );
-    case 'users': return <Users size={16} color="#10b981" />;
-    case 'briefcase': return <Briefcase size={16} color="#10b981" />;
-    case 'clock': return <Clock size={16} color="#10b981" />;
-    case 'brain': return <Brain size={16} color="#10b981" />;
+    case 'users': return <Users size={16} style={{ color: 'inherit' }} />;
+    case 'briefcase': return <Briefcase size={16} style={{ color: 'inherit' }} />;
+    case 'clock': return <Clock size={16} style={{ color: 'inherit' }} />;
+    case 'brain': return <Brain size={16} style={{ color: 'inherit' }} />;
     default:
       return null;
   }
@@ -133,7 +131,7 @@ export default function Skills() {
           </p>
         </div>
 
-        {/* 2x2 Skills Grid */}
+        {/* 2x2 Skills Grid matching website theme */}
         <div
           className="skills-grid-container"
           style={{
@@ -149,26 +147,26 @@ export default function Skills() {
               style={{
                 borderRadius: '20px',
                 padding: '1.75rem',
-                background: 'rgba(13, 18, 30, 0.65)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4)',
+                background: 'var(--bg-glass-card)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+                border: '1px solid var(--border-color)',
+                boxShadow: 'var(--shadow-md)',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 textAlign: 'center',
-                transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+                transition: 'all 0.3s ease',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.borderColor = `${cat.color}60`;
-                e.currentTarget.style.boxShadow = `0 12px 35px ${cat.color}25`;
+                e.currentTarget.style.borderColor = cat.color;
+                e.currentTarget.style.boxShadow = `0 12px 30px -10px ${cat.color}`;
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-                e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
+                e.currentTarget.style.borderColor = 'var(--border-color)';
+                e.currentTarget.style.boxShadow = 'var(--shadow-md)';
               }}
             >
               {/* Category Header */}
@@ -185,8 +183,8 @@ export default function Skills() {
                     width: '42px',
                     height: '42px',
                     borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: `1px solid ${cat.color}40`,
+                    background: 'var(--bg-tertiary)',
+                    border: `1px solid ${cat.color}`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -204,7 +202,7 @@ export default function Skills() {
                 style={{
                   width: '100%',
                   height: '1px',
-                  background: 'rgba(255, 255, 255, 0.08)',
+                  background: 'var(--border-color)',
                   marginBottom: '1.5rem',
                 }}
               />
@@ -227,8 +225,8 @@ export default function Skills() {
                       gap: '0.55rem',
                       padding: '0.5rem 1.1rem',
                       borderRadius: 'var(--radius-full)',
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      background: 'var(--bg-tertiary)',
+                      border: '1px solid var(--border-color)',
                       fontSize: '0.88rem',
                       fontWeight: 600,
                       color: 'var(--text-primary)',
@@ -237,12 +235,14 @@ export default function Skills() {
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.borderColor = cat.color;
-                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                      e.currentTarget.style.color = cat.color;
+                      e.currentTarget.style.background = 'var(--bg-glass-hover)';
                       e.currentTarget.style.boxShadow = `0 0 14px ${cat.color}40`;
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+                      e.currentTarget.style.borderColor = 'var(--border-color)';
+                      e.currentTarget.style.color = 'var(--text-primary)';
+                      e.currentTarget.style.background = 'var(--bg-tertiary)';
                       e.currentTarget.style.boxShadow = 'none';
                     }}
                   >

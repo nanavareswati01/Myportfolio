@@ -28,7 +28,7 @@ export const skillsData = [
   {
     category: "Frontend",
     icon: "Layout",
-    color: "#e34f26",
+    color: "var(--accent-purple)",
     skills: [
       { name: "HTML5", icon: "html5" },
       { name: "CSS3", icon: "css3" },
@@ -40,7 +40,7 @@ export const skillsData = [
   {
     category: "Backend",
     icon: "Server",
-    color: "#8b5cf6",
+    color: "var(--accent-cyan)",
     skills: [
       { name: "Java", icon: "java" },
       { name: "Spring Boot", icon: "spring" }
@@ -49,7 +49,7 @@ export const skillsData = [
   {
     category: "Tools & DevOps",
     icon: "Wrench",
-    color: "#06b6d4",
+    color: "var(--accent-green)",
     skills: [
       { name: "Git", icon: "git" },
       { name: "GitHub", icon: "github" },
@@ -62,7 +62,7 @@ export const skillsData = [
   {
     category: "Soft Skills",
     icon: "Handshake",
-    color: "#10b981",
+    color: "var(--accent-amber)",
     skills: [
       { name: "Team Lead", icon: "users" },
       { name: "Project Management", icon: "briefcase" },
