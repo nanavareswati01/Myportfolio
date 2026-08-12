@@ -41,7 +41,7 @@ export default function ResumeModal({ isOpen, onClose }) {
       doc.setFontSize(10.5);
       doc.setFont('helvetica', 'normal');
       doc.setTextColor(...gray);
-      doc.text('Java Full Stack Developer | MCA Student', 15, y);
+      doc.text('Software Developer | MCA Student', 15, y);
 
       y += 5;
       doc.setFontSize(9);
@@ -81,7 +81,7 @@ export default function ResumeModal({ isOpen, onClose }) {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(10);
       doc.setTextColor(...dark);
-      doc.text('Java Full Stack Developer Intern', 15, y);
+      doc.text('Software Developer Intern', 15, y);
       doc.setFont('helvetica', 'normal');
       doc.setTextColor(...gray);
       doc.text('Jan 2026 - Present', 195, y, { align: 'right' });

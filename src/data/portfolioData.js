@@ -1,14 +1,14 @@
 export const personalInfo = {
   name: "Swati Nanavare",
-  role: "Java Full Stack Developer",
+  role: "Software Developer",
   taglines: [
-    "Java Full Stack Developer",
+    "Software Developer",
     "MCA Student",
     "Spring Boot & React Engineer",
     "Team Lead Intern"
   ],
-  bio: "Aspiring Java Full Stack Developer and MCA student with hands-on internship experience in developing full-stack web applications using Java, Spring Boot, React.js, JavaScript, HTML, CSS, MySQL, PostgreSQL, and Git. Experienced in team coordination and lead activities.",
-  summary: "Aspiring Java Full Stack Developer and MCA student with hands-on internship experience in developing full-stack web applications using Java, Spring Boot, React.js, JavaScript, HTML, CSS, MySQL, PostgreSQL, and Git. Also contributed to team coordination and development activities to support timely and quality project delivery.",
+  bio: "Aspiring Software Developer and MCA student with hands-on internship experience in developing full-stack web applications using Java, Spring Boot, React.js, JavaScript, HTML, CSS, MySQL, PostgreSQL, and Git. Experienced in team coordination and lead activities.",
+  summary: "Aspiring Software Developer and MCA student with hands-on internship experience in developing full-stack web applications using Java, Spring Boot, React.js, JavaScript, HTML, CSS, MySQL, PostgreSQL, and Git. Also contributed to team coordination and development activities to support timely and quality project delivery.",
   location: "Pune, Maharashtra, India",
   email: "swatinanavare8@gmail.com",
   phone: "+91 9067880874",
@@ -18,7 +18,7 @@ export const personalInfo = {
   resumeUrl: "#resume-download",
   stats: [
     { label: "Degree", value: "MCA (Pursuing)" },
-    { label: "Experience", value: "Java Full Stack Intern" },
+    { label: "Experience", value: "Software Developer Intern" },
     { label: "BCA Score", value: "CGPA: 8.16 / 10" },
     { label: "Location", value: "Pune, MH" }
   ]
@@ -65,7 +65,7 @@ export const skillsData = [
 
 export const experienceData = [
   {
-    role: "Java Full Stack Developer Intern",
+    role: "Software Developer Intern",
     company: "STEP by SETTribe LLP",
     location: "Pune, India",
     period: "Jan 2026 – Present",

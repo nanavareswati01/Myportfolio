@@ -13,7 +13,7 @@ export default function About() {
     {
       icon: <Briefcase size={24} color="var(--accent-cyan)" />,
       title: "Experience",
-      value: "Java Full Stack Intern",
+      value: "Software Developer Intern",
       sub: "STEP by SETTribe LLP",
     },
     {
@@ -92,7 +92,7 @@ export default function About() {
           {/* Bio Story Right */}
           <div>
             <h3 style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)', marginBottom: '1rem', lineHeight: 1.3 }}>
-              Aspiring Java Full Stack Developer & <span className="gradient-text">Team Lead Intern</span>
+              Aspiring Software Developer & <span className="gradient-text">Team Lead Intern</span>
             </h3>
 
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '0.6rem', fontSize: '0.96rem' }}>
