@@ -3,12 +3,12 @@ export const personalInfo = {
   role: "Software Developer",
   taglines: [
     "Software Developer",
-    "MCA Student",
+    "MCA (Completed 2026)",
     "Spring Boot & React Engineer",
     "Team Lead Intern"
   ],
-  bio: "Aspiring Software Developer and MCA student with hands-on internship experience in developing full-stack web applications using Java, Spring Boot, React.js, JavaScript, HTML, CSS, MySQL, PostgreSQL, and Git. Experienced in team coordination and lead activities.",
-  summary: "Aspiring Software Developer and MCA student with hands-on internship experience in developing full-stack web applications using Java, Spring Boot, React.js, JavaScript, HTML, CSS, MySQL, PostgreSQL, and Git. Also contributed to team coordination and development activities to support timely and quality project delivery.",
+  bio: "Software Developer and MCA graduate (2026) with hands-on internship experience in developing full-stack web applications using Java, Spring Boot, React.js, JavaScript, HTML, CSS, MySQL, PostgreSQL, and Git. Experienced in team coordination and lead activities.",
+  summary: "Software Developer and MCA graduate (2026) with hands-on internship experience in developing full-stack web applications using Java, Spring Boot, React.js, JavaScript, HTML, CSS, MySQL, PostgreSQL, and Git. Also contributed to team coordination and development activities to support timely and quality project delivery.",
   location: "Pune, Maharashtra, India",
   email: "swatinanavare8@gmail.com",
   phone: "+91 9067880874",
@@ -17,7 +17,7 @@ export const personalInfo = {
   avatar: "/swati_avatar.jpg",
   resumeUrl: "#resume-download",
   stats: [
-    { label: "Degree", value: "MCA (Pursuing)" },
+    { label: "Degree", value: "MCA (Completed 2026)" },
     { label: "Experience", value: "Software Developer Intern" },
     { label: "BCA Score", value: "CGPA: 8.16 / 10" },
     { label: "Location", value: "Pune, MH" }
@@ -132,8 +132,8 @@ export const educationData = [
     degree: "Master of Computer Applications (MCA)",
     institution: "Dnyansagar Institute of Management & Research, Pune",
     period: "2024 – 2026",
-    score: "Pursuing",
-    status: "pursuing",
+    score: "Completed (2026)",
+    status: "completed",
     details: "Focusing on Advanced Java Full-Stack Engineering, Enterprise Architecture, Database Management, and Software Testing."
   },
   {

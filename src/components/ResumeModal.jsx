@@ -41,7 +41,7 @@ export default function ResumeModal({ isOpen, onClose }) {
       doc.setFontSize(10.5);
       doc.setFont('helvetica', 'normal');
       doc.setTextColor(...gray);
-      doc.text('Software Developer | MCA Student', 15, y);
+      doc.text('Software Developer | MCA (Completed 2026)', 15, y);
 
       y += 5;
       doc.setFontSize(9);
@@ -172,7 +172,7 @@ export default function ResumeModal({ isOpen, onClose }) {
       doc.text('Master of Computer Applications (MCA)', 15, y);
       doc.setFont('helvetica', 'normal');
       doc.setTextColor(...gray);
-      doc.text('2024 - 2026 (Pursuing)', 195, y, { align: 'right' });
+      doc.text('2024 - 2026 (Completed)', 195, y, { align: 'right' });
       y += 4;
       doc.text('Dnyansagar Institute of Management & Research, Pune', 15, y);
 
@@ -248,7 +248,7 @@ export default function ResumeModal({ isOpen, onClose }) {
         <div style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '1.5rem', marginBottom: '1.5rem' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.2rem' }}>{personalInfo.name}</h2>
           <p style={{ fontSize: '1.1rem', color: 'var(--accent-purple)', fontWeight: 600, marginBottom: '0.8rem' }}>
-            {personalInfo.role} • MCA Student
+            {personalInfo.role} • MCA (Completed 2026)
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>

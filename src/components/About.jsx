@@ -7,7 +7,7 @@ export default function About() {
     {
       icon: <GraduationCap size={24} color="var(--accent-purple)" />,
       title: "Degree",
-      value: "MCA (Pursuing)",
+      value: "MCA (Completed 2026)",
       sub: "Dnyansagar Inst. Pune",
     },
     {
