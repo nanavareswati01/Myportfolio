@@ -87,29 +87,9 @@ export default function Hero({ onOpenResume }) {
                 letterSpacing: '-0.03em',
                 marginBottom: '0.5rem',
                 wordBreak: 'break-word',
-                display: 'flex',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: '0.75rem',
               }}
             >
-              <span>Hi, I'm</span>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem' }}>
-                <img
-                  src="/swati_avatar.png"
-                  alt={personalInfo.name}
-                  style={{
-                    width: 'clamp(46px, 6vw, 64px)',
-                    height: 'clamp(46px, 6vw, 64px)',
-                    borderRadius: '50%',
-                    objectFit: 'cover',
-                    border: '2.5px solid var(--accent-purple)',
-                    boxShadow: '0 0 20px rgba(139, 92, 246, 0.4)',
-                    verticalAlign: 'middle',
-                  }}
-                />
-                <span className="gradient-text">{personalInfo.name}</span>
-              </span>
+              Hi, I'm <span className="gradient-text">{personalInfo.name}</span>
             </h1>
 
             {/* Typewriter Dynamic Title */}
