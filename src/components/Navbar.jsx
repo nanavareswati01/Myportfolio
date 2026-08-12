@@ -53,13 +53,15 @@ export default function Navbar({ theme, toggleTheme, onOpenResume }) {
           }}
         >
           <img
-            src="/logo.png"
-            alt="Logo"
+            src="/swati_avatar.png"
+            alt="Swati Nanavare"
             style={{
-              height: '36px',
-              width: 'auto',
-              maxHeight: '36px',
-              objectFit: 'contain',
+              height: '38px',
+              width: '38px',
+              borderRadius: '50%',
+              objectFit: 'cover',
+              border: '2px solid var(--accent-purple)',
+              boxShadow: '0 0 10px rgba(139, 92, 246, 0.3)',
             }}
           />
           <span>
