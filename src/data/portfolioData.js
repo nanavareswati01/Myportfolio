@@ -7,8 +7,8 @@ export const personalInfo = {
     "Spring Boot & React Engineer",
     "Team Lead Intern"
   ],
-  bio: "Software Developer and MCA graduate (2026) with hands-on internship experience in developing full-stack web applications using Java, Spring Boot, React.js, JavaScript, HTML, CSS, MySQL, PostgreSQL, and Git. Experienced in team coordination and lead activities.",
-  summary: "Software Developer and MCA graduate (2026) with hands-on internship experience in developing full-stack web applications using Java, Spring Boot, React.js, JavaScript, HTML, CSS, MySQL, PostgreSQL, and Git. Also contributed to team coordination and development activities to support timely and quality project delivery.",
+  bio: "Aspiring Software Developer and MCA graduate with hands-on internship experience in developing full-stack web applications using Java, Spring Boot, React.js, JavaScript, HTML, CSS, MySQL, PostgreSQL, and Git. Experienced in team coordination and lead activities.",
+  summary: "Aspiring Software Developer and MCA graduate with hands-on internship experience in developing full-stack web applications using Java, Spring Boot, React.js, JavaScript, HTML, CSS, MySQL, PostgreSQL, and Git. Also contributed to team coordination and development activities to support timely and quality project delivery.",
   location: "Pune, Maharashtra, India",
   email: "swatinanavare8@gmail.com",
   phone: "+91 9067880874",
